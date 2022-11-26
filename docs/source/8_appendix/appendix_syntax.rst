@@ -1,5 +1,7 @@
 .. _appendix_syntax:
 
+.. contents::
+
 Syntax
 ----------------
 

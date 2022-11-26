@@ -1,6 +1,9 @@
 Built-in Namespaces
 ------------------------
 
+
+.. contents::
+    
 .. _appendix_system:
 
 system

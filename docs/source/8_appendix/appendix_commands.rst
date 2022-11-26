@@ -1,7 +1,7 @@
  Commands
  ---------------
 
- .. _appendix_commmands_namespace:
+.. _appendix_commmands_namespace:
 
 Namespace
 -------------------

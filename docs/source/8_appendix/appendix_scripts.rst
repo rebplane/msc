@@ -1,6 +1,9 @@
 Scripts
 ---------------
 
+
+.. contents::
+
 .. _appendix_scripts_actions:
 
 Script Actions

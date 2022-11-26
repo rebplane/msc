@@ -3,6 +3,9 @@
 Built-in Types
 ------------------
 
+
+.. contents::
+
 .. _appendix_built_in_types_string:
 
 String

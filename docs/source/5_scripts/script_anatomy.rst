@@ -1,6 +1,8 @@
 Anatomy of Scripts
 -------------------------
 
+.. contents::
+
 .. _scripts_script_types:
 
 Script Types

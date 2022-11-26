@@ -6,6 +6,8 @@ a type, and be used like any other type. This allows users to build abstraction 
 on top of the basic types, which should reduce overhead in scripting and greatly simplify
 commonly used constructs.
 
+.. contents::
+
 .. _user_defined_types_user_defined_types:
 
 User defined Types

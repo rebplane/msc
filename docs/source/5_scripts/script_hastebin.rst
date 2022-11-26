@@ -37,17 +37,18 @@ entire URL, or not, it will work regardless.
 
 
 Example
-(get images todo)
 
-```
+.. image:: ../images/hastebin1.PNG
+
 Figure 5.1: Write a script in hastebin
-```
-```
+
+.. image:: ../images/hastebin2.PNG
+
 Figure 5.2: Save the script.
-```
-```
+
+.. image:: ../images/hastebin3.PNG
+    
 Figure 5.3: Find the identifier.
-```
 
 .. code-block:: console
 
@@ -64,6 +65,7 @@ Exporting a script is as easy as running
 and clicking the block, after which a link to the hastebin will be generated. To edit this
 script, you can press the edit button:
 
-(get images todo)
+.. image:: ../images/hastebin4.PNG
+
 Figure 5.5: Click the edit button, and start editing. Then follow the instructions above
 to import the script again.

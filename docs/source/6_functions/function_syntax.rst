@@ -2,7 +2,10 @@ Syntax
 -----------------
 
 A function can either be a standalone function, or a function bound to a type (often
-known asmethods).
+known as methods).
+
+.. contents::
+
 
 .. _functions_definition:
 

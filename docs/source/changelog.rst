@@ -4,6 +4,9 @@ Version History/Changelog
 2.0
 -----------
 
+**Note**
+The initial documentation for 2.0 was written by rickyboy320 and was copied here.
+
 **Additions**
 
 **Namespaces**

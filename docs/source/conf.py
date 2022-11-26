@@ -3,6 +3,7 @@
 # -- Project information
 
 project = 'Minr Docs'
+author = 'Minr'
 
 release = '0.1'
 version = '2.0'

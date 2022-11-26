@@ -74,7 +74,7 @@ variable from one namespace in a function of a different namespace. In this case
 use **@using** for the most frequently used namespace, to limit unnecessary words and
 characters.
 
-When using a namespace once, it is best to use the temporary namespace specifier (*::**)
+When using a namespace once, it is best to use the temporary namespace specifier (**::**)
 since adding additional lines would be less clear than adding the specifier.
 
 It can occur that a variable with the same name is both defined in the namespace that

@@ -17,17 +17,17 @@ The system namespace contains no variables.
 
 Table 9.1: Supported Functions for the system namespace
 
-+-----------------------------+-----------------------------------------------------------------------------+
-| **LongcurrentTimeMillis()** | Returns the current time in milliseconds. Note that                         |
-|                             |                                                                             |
-|                             | while the unit of time of the return value is a millisecond,                |
-|                             |                                                                             |
-|                             |  the granularity of the value depends on the underlying                     |
-|                             |                                                                             |
-|                             | operating system and may be larger. For example, many operating             |
-|                             |                                                                             |
-|                             | systems measure time in units of tens of milliseconds.                      |
-+-----------------------------+-----------------------------------------------------------------------------+
++-------------------------------+-----------------------------------------------------------------------------+
+| Long **currentTimeMillis**\() | Returns the current time in milliseconds. Note that                         |
+|                               |                                                                             |
+|                               | while the unit of time of the return value is a millisecond,                |
+|                               |                                                                             |
+|                               |  the granularity of the value depends on the underlying                     |
+|                               |                                                                             |
+|                               | operating system and may be larger. For example, many operating             |
+|                               |                                                                             |
+|                               | systems measure time in units of tens of milliseconds.                      |
++-------------------------------+-----------------------------------------------------------------------------+
 
 
 math
@@ -45,33 +45,33 @@ The math namespace contains no variables.
 Table 9.2: Supported Functions for the math namespace
 
 ==============================================  ==============================================================================  
-**Doublesqrt(Double value)**                        Returns the correctly rounded positive square root 
+Double **sqrt**\(Double value)                      Returns the correctly rounded positive square root 
                                                     
                                                     of a double 
-**Doubleabs(Double value)**                         Returns the absolute value of a double value. 
+Double **abs**\(Double value)                       Returns the absolute value of a double value. 
                                             
                                                     If the argument is not negative, the argument is returned. 
                                             
                                                     If the argument is negative, the negation of the argument 
                                                     
                                                     is returned.
-**Doublepow(Double value, Double exponent)**        Returns the value of the first argument 
+Double **pow**\(Double value, Double exponent)      Returns the value of the first argument 
 
                                                     raised to the power of the second argument.
-**IntrandomInt()**                                  Returns the next pseudorandom, uniformly 
+Int **randomInt**\()                                Returns the next pseudorandom, uniformly 
                                                     
                                                     distributed Int value.
-**LongrandomLong()**                                Returns the next pseudorandom, uniformly 
+Long **randomLong**\()                              Returns the next pseudorandom, uniformly 
         
                                                     distributed Long value.
-**FloatrandomFloat()**                              Returns the next pseudorandom, uniformly 
+Float **randomFloat**\()                            Returns the next pseudorandom, uniformly 
 
                                                     distributed float value between 0.0 and 1.0.
 
-**DoublerandomDouble()**                            Returns the next pseudorandom, uniformly 
+Double **randomDouble**\()                          Returns the next pseudorandom, uniformly 
 
                                                     distributed double value between 0.0 and 1.0.
-**Doublerandom(Double min, Double max)**            Returns the next pseudorandom, uniformly 
+Double **random**\(Double min, Double max)          Returns the next pseudorandom, uniformly 
 
                                                     distributed double value between min and max.
 ==============================================  ==============================================================================  

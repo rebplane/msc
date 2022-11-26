@@ -8,6 +8,8 @@ to the line, because it determines what has to be done with the arguments. There
 operators to execute commands, control the script flow and manipulate variables. Each
 such type has a dedicated section. Additionally, a full summary is available in :ref:`Script Operators <appendix_scripts_script_operators>`. 
 
+.. contents::
+
 .. _scripts_command_operators:
 
 Command Operators

@@ -8,6 +8,8 @@ process without variables yields the same result every time. Variables have cert
 what variable can passed to functions. Variables can be manually set and/or changed
 through operators.
 
+.. contents::
+
 .. _variables_types:
 
 Types

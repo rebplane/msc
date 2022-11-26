@@ -2,6 +2,8 @@
 
 The documentation was written by rickyboy320 and converted to restructuredText.
 
+You can access the readthedocs site here: https://msc-documentation.readthedocs.io/en/latest/index.html
+
 ## Generating the docs locally
 
 You can generate the documentation locally with the instructions below:

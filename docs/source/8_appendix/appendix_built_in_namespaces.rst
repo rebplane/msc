@@ -22,7 +22,7 @@ Table 9.1: Supported Functions for the system namespace
 |                               |                                                                             |
 |                               | while the unit of time of the return value is a millisecond,                |
 |                               |                                                                             |
-|                               |  the granularity of the value depends on the underlying                     |
+|                               | the granularity of the value depends on the underlying                      |
 |                               |                                                                             |
 |                               | operating system and may be larger. For example, many operating             |
 |                               |                                                                             |

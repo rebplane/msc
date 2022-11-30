@@ -1,6 +1,6 @@
 ## Documentation for MSC 2.0
 
-The documentation was written by rickyboy320 and converted to restructuredText by rebplane.
+The documentation and updates were written by rickyboy320 and CreepaShadowz and converted to restructuredText by rebplane.
 
 You can access the readthedocs site here: https://msc-documentation.readthedocs.io/en/latest/index.html
 

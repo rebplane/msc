@@ -17,6 +17,7 @@ Contents
    1_introduction/introduction
    2_namespaces/namespaces
    3_variables/variables
+   9_lists/lists
    4_expressions/expressions
    5_scripts/scripts
    6_functions/functions

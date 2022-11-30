@@ -302,6 +302,21 @@ Table 9.39: Control Script operators
       - Stops the execution of the current script/function, and
 
         optionally returns a value, if required.
+    
+    * - @fast 
+      - By default, the @command, @bypass or @console script operators have 
+      
+        a one-tick delay (like @delay 1). @fast will remove that delay for all 
+      
+        subsequent command operators.
+
+    * - @slow
+      - Re-adds the delay that was removed with @fast. Note that this 
+      
+        effect (@fast and @slow) only applies to the local execution 
+        
+        context - other functions called will be unaffected.
+
 
 Table 9.40: Branching Script operators
 

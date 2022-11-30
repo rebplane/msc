@@ -285,7 +285,11 @@ Table 9.7: Supported operators for the Int and Long type
 
 **Methods**
 
-There are no methods contained in the Int and Long type.
+======================= ====================================
+======================= ====================================
+Int floor(Double x)       Returns the floor of a double.
+Int ceiling(Double x)     Returns the ceiling of a double.
+======================= ====================================
 
 .. _appendix_built_in_types_float_and_double:
 
@@ -505,6 +509,11 @@ Player(Int x, Int y, Int z, String world)   Find a player at these coordinates i
                                             nondeterministically returns one Player at
 
                                             that location.
+Player(String name, Player visibleTo).      Construct a player from their name.
+
+                                            It will return null if a player was found but is not 
+                                            
+                                            visible to visibleTo.
 ========================================== ====================================
 
 **Operators**
@@ -902,12 +911,8 @@ Table 9.14: Supported Methods for the Player type
 
         has.
 
-    * - Int **getGlobalPoints**\() 
-      - Returns the amount of
-
-        global points the player
-
-        has.
+    * - Int **getSpeedrunScore**\() 
+      - Returns the speedrun score of the player.
 
     * - Boolean **hasCompletedMap**\(String maptag) 
       - Returns whether the
@@ -930,22 +935,75 @@ Table 9.14: Supported Methods for the Player type
 
         starting checkpoint sign.
 
-    * - **invalidate**\() 
-      - Invalidate the player’s
+    * - String **sendMessage**\(String message) 
+      - Sends a raw message directly to a player.
 
-        challenge and map run.
+    * - String **getBedLocationWorld**\()
+      - Returns a String containing the world where 
 
-    * - **invalidateTime**\() 
-      - Invalidate the player’s
+        the player has set their bed.
 
-        time on map and
+    * - Int **countItem**\(String id)
+      - Returns the number of items with Minecraft ID *id*
 
-        challenge, but allows
+        that the player has in their inventory.
 
-        them to complete the
+    * - String **getName**\()
+      - Returns the player's Minecraft username.
 
-        map and challenge.
+    * - String **getDisplayName**\()
+      - Returns the player's display name on the server (e.g. nickname
+        
+        given by /nick)
 
+    * - Location **getLocation**\()
+      - Returns the location of a player. Stringifies to "x y z world". 
+
+    * - **teleport**\(Position position)
+      - Teleports a player to position.
+
+    * - **canSee**\(Player player)
+      - Returns if the player can see the target player (i.e., /hide and /block cause it to fail).
+
+    * - String **getClickedBlockFace**\()​
+      - Returns the clicked block face of the player (e.g. EAST, UP, SOUTH). 
+      
+        Used in interact scripts.   
+
+    * - String **getTargetBlockFace**\(Int distance)
+      - Gets the block face of the block that the player is looking 
+      
+        at (must be within *distance*). Max distance is 120.
+
+    * - Block **getTargetBlock**\(Int distance)
+      - Returns the Block type of the block that the player is looking 
+      
+        at (must be within *distance*). Max distance is 120.
+
+    * - Entity **getTargetEntity**\(Int distance)
+      - Returns the Entity type of the entity that the player is 
+      
+        targeting (must be within *distance*). Max distance is 120.
+
+    * - Void **setGravity**\(Boolean gravity)
+      - Sets gravity to be true or false for the player.
+
+    * - Boolean **hasGravity**\()
+      - Returns whether the player has their gravity true or false.
+    
+    * - Boolean **isGliding**\()
+      - Returns whether the player is gliding.
+
+    * - String **getPlayerWeather**\()
+      - Returns the type of weather the player is currently experiencing.
+
+    * - Void **resetPlayerTime**\()
+      - Resets the player's time to be in sync with the server.
+
+    * - Boolean **dropItem**\(Boolean dropAll)
+      - Drops the item the player is holding. If *dropAll* is true,
+       
+        then the player drops the whole stack.
 
 .. _appendix_built_in_type_entity:
 
@@ -1086,6 +1144,19 @@ Table 9.20: Supported Methods for the Entity type
     * - String **getUniqueId**\() 
       - Gets the UUID of the entity (in string format).
 
+    * - Location **getLocation**\()
+      - Returns the location of a entity. Stringifies to "x y z world".
+
+    * - **teleport**\(Position position)
+      - Teleports an entity to position. 
+
+    * - Boolean **addPassenger**\(Entity passenger)
+      - Adds a passenger to a vehicle. Returns false if 
+        
+        could not be done for whatever reason.
+    * - Void **ejectPassenger**\(Entity passenger)
+      - Ejects any passenger from the vehicle.
+
 .. _appendix_built_in_types_block:
 
 Block
@@ -1209,6 +1280,8 @@ Table 9.23: Supported Methods for the Block type
       - Returns true if this block is
         
         liquid.
+    * - BlockLocation **getLocation**\()
+      - Returns the location of a block. Stringifies to "x y z world". 
 
 .. _appendix_built_in_types_item:
 
@@ -1286,3 +1359,226 @@ Table 9.26: Supported Methods for the Item type
       - Returns whether two items are equal, but does not
         
         consider stack size (amount).
+
+.. _appendix_spatial_types:
+
+Spatial Types
+---------------
+Script update 2.2.0 brought spatial built-in types including Location and BlockLocation, to represent points in the Minecraft world.
+
+
+.. _appendix_location:
+
+Location
+---------------------------
+
+Location is used to represent a position in a world, especially one that can be occupied by an entity. This is why it uses Doubles (since they can be on any part of a block).
+
+To obtain a Location from a Player or Entity, call getLocation().  Stringifies to "x y z world". This allows you to easily do something 
+
+**Constructors**
+
+Supported constructors for the Location type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - Location(Double x, Double y, Double z, String world)
+      - Creates a Location from the passed in coordinates and world.
+
+    * - Location(Vector3, String world)
+      - Creates a Location from the passed in vector and world.
+  
+**Methods**
+
+Supported operators for the Location type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - BlockLocation **asBlockLocation**\()
+      - Converts to a BlockLocation type.
+    * - Vector2 **asVector2**\() 
+      - Converts to a Vector2 type.
+    * - Vector3 **asVector3**\().
+      - Converts to a Vector3 type.
+    * - Region[] Location **getRegions()**
+      - Get all regions that intersect the Location.
+
+.. _appendix_block_location:
+
+BlockLocation
+------------------
+
+BlockLocation is used to represent the position of a block in the world, or any other time you want to keep the position aligned to the block grid. This uses Ints instead, since you can only set which block it is (if you want to choose the part of the block, use Location).
+
+To obtain a BlockLocation of a Block, call getLocation(). Stringifies to "x y z world". This allows you to easily do something like @bypass tp {{loc}}. 
+
+**Constructors**
+
+
+Supported constructors for the BlockLocation type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - BlockLocation(Int x, Int y, Int z, String world)
+      - Creates a BlockLocation from the passed in coordinates and world.
+
+    * - BlockLocation(BlockVector3, String world)
+      - Creates a BlockLocation from the passed in vector and world.
+
+**Methods**
+
+Supported operators for the BlockLocation type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - BlockLocation **set**\(String block)
+      - Change the block at that location to *block*.
+
+    * - Location **asLocation**\()
+      - Converts to a Location type.
+    * - Vector2 **asVector2**\() 
+      - Converts to a Vector2 type.
+    * - Vector3 **asVector3**\().
+      - Converts to a Vector3 type.
+    * - Region[] BlockLocation **getRegions()**
+      - Get all regions that intersect the BlockLocation.
+
+.. _appendix_position:
+
+Position
+------------
+
+The Position type is mostly the same as Location, except it also has ``Float yaw``, ``Float pitch``.
+
+**Constructors**
+
+
+Supported constructors for the BlockLocation type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - Position(Double x, Double y, Double z, Float yaw, Float pitch)
+      - Creates a position with the given coordinates, yaw, and pitch
+
+    * - Position(Location location, Float yaw, Float pitch)
+      - Creates a position with the given Location object, yaw, and pitch.
+
+**Methods**
+
+Supported operators for the BlockLocation type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - **getYaw**\()
+      - Returns the yaw.
+
+    * - **getPitch**\()
+      - Returns the pitch.
+
+    * - Location **asLocation**\()
+      - Converts to a Location type.
+
+.. _appendix_vectors:
+
+Vector3, BlockVector3, Vector2 and BlockVector2
+-------------------------------------------------
+
+Vector3 and BlockVector3 are intended represent abstract locations in space (in the XYZ field). Vector2 and BlockVector2 are intended to represent abstract locations on the XZ plane (useful if you don't care about the y-value of something). They're also just wrappers for some vector types I found in a library somewhere. You can use them to represent other things if you wish.
+
+Like Location vs BlockLocation, BlockVector3 and BlockVector2 are aligned to the block grid while Vector3 and Vector2 are not. Note none of the vectors care about the world.
+
+**Constructors**
+
+Supported constructors for the Vectors:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - Vector3(Double x, Double y, Double z)
+      - Constructor for Vector3
+    * - BlockVector3(Int x, Int y, Int z)
+      - Constructor for BlockVector3
+    * - Vector2(Double x, Double z)
+      - Constructor for Vector2
+    * - BlockVector2(Int x, Int y, Int z)
+      - Constructor for BlockVector2
+
+**Methods**
+
+Supported operators for the BlockLocation type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - **length**\()
+      - Returns the length of the vector
+
+    * - **distance**\(Vector otherVector)
+      - Returns the distance between two vectors. Note 
+      
+        the vectors must be of the same type.
+
+    * - **containedWithin**\(Vector min, Vector max)
+      - Returns whether a vector is within the bounding box create by two other vectors. 
+       
+        Note the vectors must be of the same type.
+
+Vectors also stringify into "x y z" or "x y" (BlockVector3(4, 12, 17) -> "4 12 17", Vector2(8, 1) -> "8.0 1.0"). This allows you to do stuff like @bypass tp {{vec}}. However as mentioned previously, you can also do Player.teleport(Position) or Entity.teleport(Position).
+
+You can convert them into other types as well. Note you can't go Vector3 <-> BlockVector2 or Vector2 <-> BlockVector3.
+
+.. _appendix_region:
+
+Region
+----------------
+
+The region type serves as a wrapper for WorldGuard regions. You can get Regions to represent existing regions in the world, or create your own on the fly.
+
+There's two ways to obtain a Region. You can do ``Region(String id, String world)`` to look up an existing region, and create a wrapper around that (returning null if it doesn't exist). Alternatively, you can construct a Region by giving it some points and a world. If you give it two sets of coordinates (whether it be through integers or BlocKVectors), you'll get a cuboid region. If you give it a list of BlockVector2s, you'll get a polygonal region.
+
+You also have the option when construction a region to give it an id - if you don't, it will be considered an "anonymous region" and be given a random id (please don't rely on what the id is). Note that all regions constructed through scripts are transient and not accessible by WorldGuard, the server, any other part of Minr, or any other plugin. They only exist within the confines of scripts. This means you won't see them if you use the spider eye or /region info, nor will any flags or restrictions applied to them be enforced. Note you can't obtain a transient region with ``Region(String id, String world)``, even if you give it an id.
+
+You can check if a region contains a Player, BlockVector2, BlockVector3, BlockLocation, a coordinate (Int x, Int y, Int z, String world) or any BlockVector2 in a list. The first one is the most important, since we now finally have a native way to check if a player is in a region for @prompt scripts.
+
+You can check if a region contains a player with region.containsPlayer(). You can use regions constructed on the fly with Region(min, max, world).containsPlayer(player) (where min and max are BlockVector3s), or Region(minX, minY, minZ, maxX, maxY, maxZ, world).containsPlayer(player). You could also use an existing region.
+
+**Methods**
+
+Supported operators for the Region type:
+
+.. list-table:: 
+    :widths: 10 50
+    :stub-columns: 0
+
+    * - Boolean **containsPlayer**\()
+      - Check if a region contains a player
+    * - Player[] **getPlayersInside**\()
+      - Returns all players currently inside a region
+    * - BlockLocation **getMinimumPoint**\() 
+      - Returns the minimum point of a region.
+    * - BlockLocation **getMaximumPoint**\()
+      - Returns the maximum point of a region.
+    * - Player[] **getMemberPlayers**\()
+      - Returns members of a region.
+    * - String[] **getMemberGroups**\()
+      - Returns the member groups of a region.
+    * - Player[] **getOwningPlayers**\()
+      - Returns the owners of the region.
+    * - String[] **getOwningGroups**\()
+      - Returns the owner groups of a region.
+
+Finally, all Area scripts now have an additional parameter - Region region. This will be a Region type representing the region that the script is tied to. This allows a script to figure out where it is being called from.

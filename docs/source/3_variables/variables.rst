@@ -40,53 +40,54 @@ or represent an entire different structure.
 
 As of version 2.0, MSC contains:
 
-+---------+-----------------------------------------------------------------------------+
-| String  | Plain text. Commands passed to @bypass, @command, @console and              |
-|         |                                                                             |
-|         | @player must be of this type.                                               |
-+---------+-----------------------------------------------------------------------------+
-| Int     | A (signed) integer. Represents whole positive and negative numbers.         |
-|         |                                                                             |
-|         | Can be used to define an amount among other things.                         |
-|         |                                                                             |
-|         | Can represent values from 2^{31} through 2^{31} − 1.                        |
-+---------+-----------------------------------------------------------------------------+
-| Long    | A (signed) integer. Represents more values than an Int can. Can             |
-|         |                                                                             |
-|         | represent values from −2^{63} through 2^{63} − 1. Generally not necessary   |
-|         |                                                                             |
-|         | until the Int does not suffice.                                             |
-+---------+-----------------------------------------------------------------------------+
-| Float   | A single-precision floating point number. Can represent a wide range of     |
-|         |                                                                             |
-|         | decimals (but sometimes suffers from being unable to represent a            |
-|         |                                                                             |
-|         | number). Can be used for a lot of things.                                   |
-+---------+-----------------------------------------------------------------------------+
-| Double  | A double-precision floating point number. Can represent a wider range of    |
-|         |                                                                             |
-|         | decimals than Float can (but still not all). For general purposes, Float is |
-|         |                                                                             |
-|         | likely enough, but if it is not, Double can represent more precise state    |
-|         |                                                                             |
-|         | when needed, such as when doing precise maths                               |
-+---------+-----------------------------------------------------------------------------+
-| Boolean | Can either be *true* or *false*. Used to keep track of conditions           |
-+---------+-----------------------------------------------------------------------------+
-| Player  | Represents the Minecraft Player. Contains a wide range of utility           |
-|         |                                                                             |
-|         | functions and access to player statistics and variables. Can be used to     |
-|         |                                                                             |
-|         | directly read and alter a Player state, to some extent.                     |
-+---------+-----------------------------------------------------------------------------+
-| Entity  | Represents a Minecraft Entity. Contains a wide range of utility functions   |
-|         |                                                                             |
-|         | to read and alter the Entity state, to some extent.                         |
-+---------+-----------------------------------------------------------------------------+
-| Block   | Represents a Minecraft Block. Contains information about a block and        |
-|         |                                                                             |
-|         | ways to alter it, to some extent.                                           |
-+---------+-----------------------------------------------------------------------------+
+=================== ===============================================================================
+=================== ===============================================================================
+String                  Plain text. Commands passed to @bypass, @command, @console and              
+
+                        @player must be of this type.                                               
+Int                     A (signed) integer. Represents whole positive and negative numbers.         
+
+                        Can be used to define an amount among other things.                         
+
+                        Can represent values from 2^{31} through 2^{31} − 1.                        
+Long                    A (signed) integer. Represents more values than an Int can. Can             
+
+                        represent values from −2^{63} through 2^{63} − 1. Generally not necessary   
+
+                        until the Int does not suffice.                                             
+Float                   A single-precision floating point number. Can represent a wide range of     
+
+                        decimals (but sometimes suffers from being unable to represent a            
+
+                        number). Can be used for a lot of things.                                   
+Double                  A double-precision floating point number. Can represent a wider range of    
+
+                        decimals than Float can (but still not all). For general purposes, Float is 
+
+                        likely enough, but if it is not, Double can represent more precise state    
+
+                        when needed, such as when doing precise maths                               
+Boolean                 Can either be *true* or *false*. Used to keep track of conditions           
+Player                  Represents the Minecraft Player. Contains a wide range of utility           
+
+                        functions and access to player statistics and variables. Can be used to     
+
+                        directly read and alter a Player state, to some extent.                     
+Entity                  Represents a Minecraft Entity. Contains a wide range of utility functions   
+
+                        to read and alter the Entity state, to some extent.                         
+Block                   Represents a Minecraft Block. Contains information about a block and        
+
+                        ways to alter it, to some extent.
+Location                
+BlockLocation
+Position
+Vector3
+Vector2
+BlockVector3
+BlockVector2
+Region                       
+=================== ===============================================================================      
 
 For a more detailed list on what functions and variables each of these types expose, take
 a look at the appendix: Built-in Types. :ref:`Built-in Types <appendix_built_in_types>`

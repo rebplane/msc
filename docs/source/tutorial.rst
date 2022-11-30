@@ -218,7 +218,7 @@ Creating a dialogue script
 
 And now finally, we're ready to start creating our first script! We will create a dialogue script here. Dialogues are used when you want the player to be shown some text in chat, for example a dialogue with an NPC.
 
-For example, if we want our armor stand to say the message "Rick: Hi!" in chat, we will run this command and click the armor stand to add the script onto it:
+For example, if we want our armor stand to say the message "John: Hi!" in chat, we will run this command and click the armor stand to add the script onto it:
 
 .. code-block:: console
 

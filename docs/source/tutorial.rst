@@ -3,10 +3,6 @@ Tutorial
 
 This tutorial is designed to give players who are new to scripting a brief introduction to the MSC 2.0 language. We'll cover the basics on scripting and provide the most important points to remember without overcomplicating and going into too much detail. Once you're done with this tutorial, you should know how to create basic scripts such as dialogues and prompts, and have a general idea of how MSC 2.0 works and what you can do with it.
 
-**Note**
-
-The documentation is currently out of date as I converted it back in 2019. However, this tutorial is up to date and will give you a guide on how to get started with scripting.
-
 .. contents:: Tutorial Contents
 
 .. _tutorial_desc:

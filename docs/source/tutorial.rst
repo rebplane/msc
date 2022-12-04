@@ -535,7 +535,7 @@ Creating an answer prompt
 
 Here, we'll ask the player what color a banana is. We give them 30 seconds to answer - if they go over the time limit, they get "You took too long. Try again!" and the script terminates. The answer, obviously, is yellow, and will tell them "Correct!" if they successfully answer. If they type anything else, they will get "Incorrect!"
 
-You typically want to run the command .equalsIgnoreCase() on your input. That way, if the user answers with "Yellow", or "YELLOW" (which are both correct!), etc., it will still match with "yellow", as equalsIgnoreCase compares the letters without regard for capitalization.
+You typically want to run the command .equalsIgnoreCase() on your input. That way, if the user answers with "Yellow", or "YELLOW" (which are both correct!), etc., it will still match with "yellow", as equalsIgnoreCase compares the characters without regard for capitalization.
 
 .. code-block::
 

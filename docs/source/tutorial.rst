@@ -543,7 +543,7 @@ You typically want to run the command .equalsIgnoreCase() on your input. That wa
 
     @player What color is a banana?
 
-    @prompt 30s i You took too long. Try again!
+    @prompt 30s user_input You took too long. Try again!
     @if user_input.equalsIgnoreCase("yellow")
         @player Correct!
     @else

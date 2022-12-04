@@ -470,7 +470,7 @@ I define the variable *count* of type relative Int (remember, relative is a per-
 
 .. code-block:: 
 
-    /variable define relative Int count = 5
+    /variable define relative Int count = 0
 
 I put the following code onto it:
 
@@ -506,9 +506,9 @@ I add the following code to a block (for example, an egg head):
     @using learnmsc
 
     @if clicked == True:
-        @player {{You already found this egg!}}
+        @player You already found this egg!
     @else:
-        @player {{Congrats! You found this egg!}}
+        @player Congrats! You found this egg!
         @var clicked = True
     @fi
 

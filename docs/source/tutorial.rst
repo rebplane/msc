@@ -505,9 +505,9 @@ I add the following code to a block (for example, an egg head):
 
     @using learnmsc
 
-    @if clicked == True:
+    @if clicked
         @player You already found this egg!
-    @else:
+    @else
         @player Congrats! You found this egg!
         @var clicked = True
     @fi

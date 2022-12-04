@@ -566,15 +566,6 @@ Table 9.14: Supported Methods for the Player type
 
     * - Float **getPitch**\() 
       - Gets the entity’s current rotation around the x axis.
-
-    * - Double **getVelocityX**\() 
-      - Gets the entity’s current velocity in the x direction.
-
-    * - Double **getVelocityY**\() 
-      - Gets the entity’s current velocity in the x direction.
-
-    * - Double **getVelocityZ**\() 
-      - Gets the entity’s current velocity in the x direction.
       
     * - String **getWorld**\() 
       - Gets the current world this entity resides in.

@@ -29,9 +29,9 @@ Script Commands
    
    script_commands
 
-Hastebin
+Paste.minr.org
 -------------------
 
 .. toctree:: 
 
-   script_hastebin
+   script_paste

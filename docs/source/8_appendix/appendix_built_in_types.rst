@@ -660,7 +660,7 @@ Table 9.14: Supported Methods for the Player type
         
         deviate from the value set here.
 
-    * - Float **getFoodLevel**\() 
+    * - Float **getFoodLevels**\() 
       - Gets the players current food level.
 
     * - **setFoodLevel**\(Int value) 
@@ -871,7 +871,9 @@ Table 9.14: Supported Methods for the Player type
 
         the player has spent in
 
-        the challenge.
+        the challenge. Returns - 1 if the player
+
+        is not in a challenge.
 
     * - Boolean **isPlayingMap**\() 
       - Returns whether the

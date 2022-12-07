@@ -79,14 +79,16 @@ Entity                  Represents a Minecraft Entity. Contains a wide range of 
 Block                   Represents a Minecraft Block. Contains information about a block and        
 
                         ways to alter it, to some extent.
-Location                
-BlockLocation
-Position
-Vector3
-Vector2
-BlockVector3
-BlockVector2
-Region                       
+Location                Represents a position in a world.
+BlockLocation           Represents a position of a block in a world.
+Position                Similar to Location, but has yaw and pitch.
+Vector3                 A 3 dimensional vector of Doubles.
+Vector2                 A 2 dimensional vector of Doubles.
+BlockVector3            A 3 dimensional vector of Ints.
+BlockVector2            A 2 dimensional vector of Ints.
+Region                  Can either be used to represent existing WorldGuard regions
+
+                        in the world, or you can create your own region.
 =================== ===============================================================================      
 
 For a more detailed list on what functions and variables each of these types expose, take
@@ -135,7 +137,7 @@ what properties the variable itself has. As of MSC 2.0 there are two qualifiers:
 |         |                                                                             |
 |         | clear scripts, and makes changing values more maintainable                  |
 +---------+-----------------------------------------------------------------------------+
-| Int     |A variable that is player-bound. This is MSC 2’s way of defining             | 
+| Int     | A variable that is player-bound. This is MSC 2’s way of defining            | 
 |         |                                                                             |
 |         | per-player variables, rather than shared variables                          |
 +---------+-----------------------------------------------------------------------------+

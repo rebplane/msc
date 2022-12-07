@@ -41,7 +41,7 @@ marks, as follows: ”This is escaped:\”. Cool.”
 The second way is through a constructor. Available constructors are:
 
 
-Table 9.3: Supported constructors for the String type
+Supported constructors for the String type
 
 =========================== ====================================
 =========================== ====================================
@@ -87,7 +87,7 @@ marks.
 Operators
 ------------------------
 
-Table 9.4: Supported operators for the String type
+Supported operators for the String type
 
 +-----+----------------------------+------------------------------------------------------+
 | \+  |   String                   |   Concatenates two Strings together.                 |  
@@ -116,22 +116,22 @@ Table 9.4: Supported operators for the String type
 |     +----------------------------+------------------------------------------------------+  
 |     |   Item                     |   Concatenates String and Item together.             |
 +-----+----------------------------+------------------------------------------------------+
-| ==  |    String                  |    Checks for equality between Strings. This is      |
+| ==  |    String                  |   Checks for equality between Strings. This is       |
 |     |                            |                                                      |  
 |     |                            |   case-sensitive. For case-insensitive equality, use |
 |     |                            |                                                      |      
 |     |                            |   .equalsIgnoreCase(). (Returns Boolean with the     |
 |     |                            |                                                      |  
-|     |                            |  result: true if equal).                             |
+|     |                            |   result: true if equal).                            |
 +-----+----------------------------+------------------------------------------------------+
-| !=  |    String                  |    Checks for inequality between Strings. (Returns   |
+| !=  |    String                  |   Checks for inequality between Strings. (Returns    |
 |     |                            |                                                      |    
 |     |                            |   Boolean with the result: true if not equal).       |
 +-----+----------------------------+------------------------------------------------------+
 
 **Methods**
 
-Table 9.5: Supported Methods for the String type
+Supported Methods for the String type
 
 =========================================== ====================================
 =========================================== ====================================
@@ -204,7 +204,7 @@ The Long literal is any whole number followed by L: 1L, 2L, 4L, 10L, -5L.
 
 The second way is through a constructor. Available constructors are:
 
-Table 9.6: Supported constructors for the Int and Long type
+Supported constructors for the Int and Long type
 
 ========================================== ====================================
 ========================================== ====================================
@@ -231,7 +231,7 @@ Long(String value)                          Attempt to parse a String into an Lo
 **Operators**
 
 
-Table 9.7: Supported operators for the Int and Long type
+Supported operators for the Int and Long type
 
 +-----+----------------------------+------------------------------------------------------+
 | \+  |   String                   |   Concatenates Int and String together, as if the    |  
@@ -332,7 +332,7 @@ The Double literal is any number followed by D: 1D, 2D, 4.0D, 10.2342D, -5.12D.
 
 The second way is through a constructor. Available constructors are:
 
-Table 9.8: Supported constructors for the Float and Double type
+Supported constructors for the Float and Double type
 
 ========================================== ====================================
 ========================================== ====================================
@@ -358,7 +358,7 @@ Double(String value)                        Attempt to parse a String into an Do
 
 **Operators**
 
-Table 9.9: Supported operators for the Float and Double type
+Supported operators for the Float and Double type
 
 +-----+----------------------------+------------------------------------------------------+
 | \+  |   String                   |   Concatenates Float and String together, as if the  |  
@@ -430,7 +430,7 @@ The Boolean literal is either true or false.
 The second way is through a constructor. Available constructors are:
 
 
-Table 9.10: Supported constructors for the Boolean type
+Supported constructors for the Boolean type
 
 ========================================== ====================================
 ========================================== ====================================
@@ -443,23 +443,23 @@ Boolean(String)                             Parse true or false in string format
 **Operators**
 
 
-Table 9.11: Supported operators for the Boolean type
+Supported operators for the Boolean type
 
 ===== ========================================== ====================================
 ===== ========================================== ====================================
 \+      String                                      Concatenates Boolean and String together, as if the value were a
                 
-                                                    string. (*true+ ”true” = ”truetrue”)*
-!       (Prefix)                                    Negates the boolean value. (*!true = false)*
+                                                    string. (true+ ”true” = ”truetrue”)
+!       (Prefix)                                    Negates the boolean value. (!true = false)
 &&      Boolean                                     ANDs the booleans together. Results in true only if both booleans
 
-                                                    are true. *(true && true = true, true && false =*
+                                                    are true. (true && true = true, true && false = false,
 
-                                                    *false, false && false = false)*
-||      Boolean                                      ORs the booleans. Results in true when either boolean is true.
+                                                    false && false = false)
+||      Boolean                                     ORs the booleans. Results in true when either boolean is true.
 
-                                                    *(true || true = true, true || false = true, false || false= false)*
-==      Boolean                                      Returns whether two Boolean values are the same (both true, or
+                                                    (true || true = true, true || false = true, false || false= false)
+==      Boolean                                     Returns whether two Boolean values are the same (both true, or
 
                                                     both false).
 !=      Boolean                                     Returns whether two Boolean values are not the same.
@@ -660,7 +660,7 @@ Table 9.14: Supported Methods for the Player type
         
         deviate from the value set here.
 
-    * - Float **getFoodLevel**\() 
+    * - Float **getFoodLevels**\() 
       - Gets the players current food level.
 
     * - **setFoodLevel**\(Int value) 
@@ -673,7 +673,7 @@ Table 9.14: Supported Methods for the Player type
         
         level. Your food level will not drop if
         
-        you are saturated ¿ 0.
+        you are saturated > 0.
 
     * - **setSaturation**\(Float value) 
       - Sets the players current saturation
@@ -871,7 +871,9 @@ Table 9.14: Supported Methods for the Player type
 
         the player has spent in
 
-        the challenge.
+        the challenge. Returns - 1 if the player
+
+        is not in a challenge.
 
     * - Boolean **isPlayingMap**\() 
       - Returns whether the

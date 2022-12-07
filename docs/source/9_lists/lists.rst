@@ -63,7 +63,7 @@ Both:
 
     [5, 6]
 
-Accessing an out of bound index with yield an IndexOutOfBoundException and terminate the script.
+Accessing an out of bound index will throw an IndexOutOfBoundException and terminate the script.
 
 .. _lists_method:
 
@@ -91,11 +91,11 @@ Methods
     * - Boolean **contains**\(T value)
       - Returns whether the list contains an element that equals value.
     * - Int find(T value) 
-      - Returns the first index that matches the value. Throws a 
+      - Returns the first index that matches the value. Throws an 
        
-         ElementNotFoundException if the value is not in the list. 
+        ElementNotFoundException if the value is not in the list. 
          
-         (Tip: always use contains before find)
+        (Tip: always use contains before find)
     * - String[] **split**\(String separator)
       - Splits the string based on the separator into A
 
@@ -105,7 +105,7 @@ Methods
     * - String[] **concat**\() 
       - Concatenates a list of Strings together: 
 
-         String["hello", "world"].concat() yields "helloworld".
+        String["hello", "world"].concat() yields "helloworld".
     * - String **join**\(String delimiter) 
       - Joins a list of string, inserting delimiter 
 

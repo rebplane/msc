@@ -4,6 +4,7 @@ MSC 2.0
 Tutorial
 -------------
 .. toctree::
+   :maxdepth: 1
    
    tutorial
 

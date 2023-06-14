@@ -1460,8 +1460,8 @@ Supported constructors for the BlockLocation type:
     :widths: 10 50
     :stub-columns: 0
 
-    * - Position(Double x, Double y, Double z, Float yaw, Float pitch)
-      - Creates a position with the given coordinates, yaw, and pitch
+    * - Position(Double x, Double y, Double z, Float yaw, Float pitch, String world)
+      - Creates a position with the given coordinates, yaw, pitch, and world.
 
     * - Position(Location location, Float yaw, Float pitch)
       - Creates a position with the given Location object, yaw, and pitch.

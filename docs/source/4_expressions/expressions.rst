@@ -58,10 +58,10 @@ as the * operator taking precedence over the + operator. If operators have the s
 precedence, the expression is evaluated from left to right. The above example: ”Hello”
 + ”World” + 5 + 5 therefore evaluates to ”HelloWorld55”.
 
-You may be confused why it is not ”HelloWorld10”. The + operators has equal prece-
-dence whether it is used for a String or an Int. Reading left to right, first Hello and
-World are concatenated by the + operator, then HelloWorld + 5 is evaluated, which re-
-sults in HelloWorld5 (because String + Int = String), then HelloWorld5 + 5 is evaluated,
+You may be confused why it is not ”HelloWorld10”. The + operators has equal precedence
+whether it is used for a String or an Int. Reading left to right, first Hello and
+World are concatenated by the + operator, then HelloWorld + 5 is evaluated, which results
+in HelloWorld5 (because String + Int = String), then HelloWorld5 + 5 is evaluated,
 resulting in HelloWorld55.
 
 Before a function is called, each of the parameters are first processed. This happens
@@ -79,8 +79,8 @@ you write:
 
     Operator ’+’ is not applicable on types: Block, Int
 
-Because Block has no + operator, this expression cannot complete, and will error. Some-
-times this may be less apparent because of chained expressions. In general it is smart to
+Because Block has no + operator, this expression cannot complete, and will error. Sometimes
+this may be less apparent because of chained expressions. In general it is smart to
 keep your expressions as simple as possible, often preferring the most readable solution.
 
 .. _expressions_execution_order:
@@ -132,6 +132,7 @@ For example:
 
 .. code-block:: console
 
+    -20
     true
 
 The first one is fairly logical following basic math. The second may be harder to see
@@ -144,8 +145,8 @@ corresponds with false||true, which is true.
 Short Circuit
 -----------------------------
 
-In the case of the logical operators, the expression will short circuit whenever the ex-
-pression has gathered enough info about the result. For example, assuming function()
+In the case of the logical operators, the expression will short circuit whenever the 
+expression has gathered enough info about the result. For example, assuming function()
 returns a Boolean:
 
 .. code-block:: python

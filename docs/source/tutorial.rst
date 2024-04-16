@@ -386,8 +386,8 @@ I define two variables: message (type String) and number (type Int):
 
 .. code-block:: 
 
-    /variable define String message = "Hello"
-    /variable define Int number = 1
+    /variable define learnmsc String message = "Hello"
+    /variable define learnmsc Int number = 1
 
 I use it in a script:
 
@@ -497,7 +497,7 @@ I define the variable *clicked* of type relative Boolean (remember, relative is 
 
 .. code-block:: 
 
-    /variable define relative Boolean clicked = False
+    /variable define learnmsc relative Boolean clicked = false
 
 I add the following code to a block (for example, an egg head):
 
@@ -509,7 +509,7 @@ I add the following code to a block (for example, an egg head):
         @player You already found this egg!
     @else
         @player Congrats! You found this egg!
-        @var clicked = True
+        @var clicked = true
     @fi
 
 

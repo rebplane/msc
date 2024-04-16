@@ -12,7 +12,7 @@ The scripts command always has the following format:
 Action
 -----------------------
 
-*A summarized version can be found in the appendix: Supported actions for* :ref:`Supported actions for script commands <appendix_scripts_actions>`
+*A summarized version can be found in the appendix:* :ref:`Supported actions for script commands <appendix_scripts_actions>`
 
 In this section, all <type> [typeparameters] are replaced by ... for easier overview. Do
 note that the type is still required, and the type parameters come **before** the action
@@ -102,7 +102,7 @@ Export the script to hastebin. (See :ref:`Hastebin <script_hastebin>` for more i
 
 **import ... <id>**
 
-Import the script from hastebin. idis the identifier of your hastebin script, and should
+Import the script from hastebin. *id* is the identifier of your hastebin script, and should
 be passed. (See Hastebin for more information).
 
 **copy**
@@ -139,19 +139,19 @@ to define it afterwards.
 
 **interact [x y z] [world]**
 
-x y zare the coordinates the script should be bound to. *world* is the world in which the
+*x y z* are the coordinates the script should be bound to. *world* is the world in which the
 block should be found. If world is undefined, it will take the player’s current world. If
 x y z are undefined, the player will be asked to interact with a block to bind the script.
 
 **walk [x y z] [world]**
 
-x y zare the coordinates the script should be bound to. *world* is the world in which the
+*x y z* are the coordinates the script should be bound to. *world* is the world in which the
 block should be found. If world is undefined, it will take the player’s current world. If
 x y z are undefined, the player will be asked to interact with a block to bind the script.
 
 **ground [x y z] [world]**
 
-x y zare the coordinates the script should be bound to. *world* is the world in which the
+*x y z* are the coordinates the script should be bound to. *world* is the world in which the
 block should be found. If world is undefined, it will take the player’s current world. If
 x y z are undefined, the player will be asked to interact with a block to bind the script.
 
@@ -165,7 +165,7 @@ the script. If no entity exists with the given UUID, the command will fail.
 **area [world] <region>**
 
 *world* is the world in which the block should be found. If world is undefined, it will take
-the player’s current world.*region* is the WorldGuard region the script should be bound
+the player’s current world. *region* is the WorldGuard region the script should be bound
 to. The script is executed upon entering the region.
 
 **function <namespace> <function>**
@@ -189,6 +189,6 @@ distinguish multiple constructors with different signatures, such as:
     String(Player)
     String(Int)
 
-These, while having the same type, have different signatures. To access these construc-
-tors (note that built-in constructors cannot be edited), you would use the full definition,
-in contrast to functions and methods, where only the name suffices.
+These, while having the same type, have different signatures. To access these constructors
+(note that built-in constructors cannot be edited), you would use the full definition, in 
+contrast to functions and methods, where only the name suffices.

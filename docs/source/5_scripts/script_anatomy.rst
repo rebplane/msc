@@ -35,7 +35,7 @@ The walk script type is often used for traps, story elements, resets, and much m
 **ground**
 
 The ground script type triggers only when the player walks over the block containing
-the script. It only triggers once the player isonthe block, and not while jumping over
+the script. It only triggers once the player is **on** the block, and not while jumping over
 it, or when the block is air.
 
 The ground script type can be used for crumbling pathways and other effects that require
@@ -98,13 +98,12 @@ Alongside default types and variables, a script can also contain parameters. Scr
 Parameters are set by the ’system’. Parameters can be accessed much like any other
 variable.
 
-A script can have the following basic parameters (situationally, use /s vtypeto see which
+A script can have the following basic parameters (situationally, use /s v *type* to see which
 ones are present):
 
 **player**
 
-A Player type. Represents the player executing the script. Is not present within func-
-tions.
+A Player type. Represents the player executing the script. Is not present within functions.
 
 **block**
 
@@ -116,13 +115,3 @@ functions, entity scripts or area scripts.
 An Entity type. Represents the entity the script is bound to (if any). Is only present in
 entity scripts.
 
-.. _scripts_commands:
-
-Commands
-------------------
-
-The scripts command always has the following format:
-
-.. code-block:: python
-
-    /script <action> <type> [typeparameters] [actionparameters]

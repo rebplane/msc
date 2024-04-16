@@ -5,7 +5,7 @@ Variables
 
 Variables are the objects that can be adjusted to make a process behave differently. A
 process without variables yields the same result every time. Variables have certain characteristics defined by their type. The type defines what a variable can do and restricts
-what variable can passed to functions. Variables can be manually set and/or changed
+what variable can be passed to functions. Variables can be manually set and/or changed
 through operators.
 
 .. contents::
@@ -128,19 +128,19 @@ Qualifiers
 
 When defining a new type or namespace, sometimes it is useful to have variables that
 are player relative, or a variable that has a constant value. Persistent variables can
-be qualified by a qualifier keywords that determine their behaviour. Where the type
+be qualified by qualifier keywords that determine their behaviour. Where the type
 determines what can be done with the value of the variable, the qualifier determines
 what properties the variable itself has. As of MSC 2.0 there are two qualifiers:
 
-+---------+-----------------------------------------------------------------------------+
-| final   | A constant variable. Once initialized cannot be changed. Useful for more    |
-|         |                                                                             |
-|         | clear scripts, and makes changing values more maintainable                  |
-+---------+-----------------------------------------------------------------------------+
-| Int     | A variable that is player-bound. This is MSC 2’s way of defining            | 
-|         |                                                                             |
-|         | per-player variables, rather than shared variables                          |
-+---------+-----------------------------------------------------------------------------+
++----------+-----------------------------------------------------------------------------+
+| final    | A constant variable. Once initialized cannot be changed. Useful for more    |
+|          |                                                                             |
+|          | clear scripts, and makes changing values more maintainable                  |
++----------+-----------------------------------------------------------------------------+
+| relative | A variable that is player-bound. This is MSC 2’s way of defining            | 
+|          |                                                                             |
+|          | per-player variables, rather than shared variables                          |
++----------+-----------------------------------------------------------------------------+
 
 .. _variables_usage:
 

@@ -107,9 +107,9 @@ Methods
 
         String["hello", "world"].concat() yields "helloworld".
     * - String **join**\(String delimiter) 
-      - Joins a list of string, inserting delimiter 
+      - Joins a list of strings, inserting the delimiter between each string: 
 
-        between each string: String["hello", "world"].join(" ") yields "hello world".
+        String["hello", "world"].join(" ") yields "hello world".
     * - Long[]/Float[]/Double[]/Int[] **avg**\()
       - Returns the average of the elements in the list.
     * - Long[]/Float[]/Double[]/Int[] **sum**\()
@@ -200,7 +200,7 @@ Looping through your list can be done by setting the end to list.length().
 Player Indexing
 ----------------------
 
-Relative variable support player indices to get the value for a specific player. Suppose we have a relative Int x = 5.
+Relative variables support player indices to get the value for a specific player. Suppose we have a relative Int x = 5.
 
 For rickyboy320, x = 3.
 For CreepaShadowz, x = 7.

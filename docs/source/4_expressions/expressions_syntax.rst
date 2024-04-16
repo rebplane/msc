@@ -24,7 +24,7 @@ used on persistent variables, and therefore not in scripts.
 makes it easier to distinguish the type from the variable and qualifiers.
 
 *name* can be any word that is not a keyword or literal. The name can consist of the
-following characters: a-z, A-Z, 0-9,. The name cannot start with a number, , or an
+following characters: a-z, A-Z, 0-9, _. The name cannot start with a number, _, or an
 uppercase character.
 
 *expression* has to be a valid expression resulting in a value of Type. See :ref:`Expression <expressions_expression>`

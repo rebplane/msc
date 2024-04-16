@@ -200,7 +200,7 @@ Looping through your list can be done by setting the end to list.length().
 Player Indexing
 ----------------------
 
-Relative variable support player indices to get the value for a specific player. Suppose we have a relative Int x = 5.
+Relative variables support player indices to get the value for a specific player. Suppose we have a relative Int x = 5.
 
 For rickyboy320, x = 3.
 For CreepaShadowz, x = 7.

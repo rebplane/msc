@@ -14,7 +14,7 @@ a value as well. Returning a value will allow the caller to store or use the res
 different script or function, further allowing for re-usability. For this reason functions
 have a return type, alongside parameter types. We will go a little more in depth later.
 
-Functions are primarily meant to write parts of a script that is repetitive or can be used
+Functions are primarily meant to write parts of a script that are repetitive or can be used
 somewhere else. They are also used to condense a long script into one call (such as the
 use of functions in @chatscript).
 
@@ -28,7 +28,7 @@ The definition of a function looks like:
 
     ReturnType functionname(Type_1 name_1, ..., Type_n name_n)
 
-Them the syntax of calling this function is as follows:
+Then the syntax of calling this function is as follows:
 
 .. code-block:: console
 

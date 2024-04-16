@@ -115,13 +115,3 @@ functions, entity scripts or area scripts.
 An Entity type. Represents the entity the script is bound to (if any). Is only present in
 entity scripts.
 
-.. _scripts_commands:
-
-Commands
-------------------
-
-The scripts command always has the following format:
-
-.. code-block:: python
-
-    /script <action> <type> [typeparameters] [actionparameters]

@@ -107,9 +107,9 @@ Methods
 
         String["hello", "world"].concat() yields "helloworld".
     * - String **join**\(String delimiter) 
-      - Joins a list of string, inserting delimiter 
+      - Joins a list of strings, inserting the delimiter between each string: 
 
-        between each string: String["hello", "world"].join(" ") yields "hello world".
+        String["hello", "world"].join(" ") yields "hello world".
     * - Long[]/Float[]/Double[]/Int[] **avg**\()
       - Returns the average of the elements in the list.
     * - Long[]/Float[]/Double[]/Int[] **sum**\()

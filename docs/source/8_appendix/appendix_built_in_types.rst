@@ -242,7 +242,7 @@ Supported operators for the Int and Long type
 |     |                            |                                                      |  
 |     |                            |   operand.                                           |
 +-----+----------------------------+------------------------------------------------------+
-|  -  |   Int, Double, Float, Long |   Subtracts the operand value from the value.        |
+| \-  |   Int, Double, Float, Long |   Subtracts the operand value from the value.        |
 +-----+----------------------------+------------------------------------------------------+
 | \*  |   Int, Double, Float, Long |   Multiplies the value with the operand value.       |
 +-----+----------------------------+------------------------------------------------------+
@@ -369,7 +369,7 @@ Supported operators for the Float and Double type
 |     |                            |                                                      |  
 |     |                            |   operand.                                           |
 +-----+----------------------------+------------------------------------------------------+
-|  -  |   Int, Double, Float, Long |   Subtracts the operand value from the value.        |
+| \-  |   Int, Double, Float, Long |   Subtracts the operand value from the value.        |
 +-----+----------------------------+------------------------------------------------------+
 | \*  |   Int, Double, Float, Long |   Multiplies the value with the operand value.       |
 +-----+----------------------------+------------------------------------------------------+

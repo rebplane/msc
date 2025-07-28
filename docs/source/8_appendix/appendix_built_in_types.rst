@@ -302,10 +302,8 @@ of this way of representing the numbers (using a floating point), not all number
 represented as accurately. A Float and a Double can both represent a wider range of
 values than the Integer or Long can, but not as precisely.
 
-The Java standard upholds a max Float value of (2− :math:`2^{−^23}`` )· :math:`2^{127}` and a minimum
-
-
-(positive) Float value of :math:`2^{149}`. All numbers that can be represented positively can also
+The Java standard upholds a max Float value of (2− :math:`2^{−23}`` )· :math:`2^{127}` and a minimum
+(positive) Float value of :math:`2^{-149}`. All numbers that can be represented positively can also
 be represented negatively (including 0!). Do note that not all numbers in the range of
 the min and max value can be represented, and that there is more than often a case of
 precision loss.

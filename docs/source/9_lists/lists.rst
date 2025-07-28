@@ -78,6 +78,8 @@ Methods
       - Reports the number of items in the list.
     * - **append**\(T value) 
       - Append a value to the end of the list.
+    * - **add**\(T value, Int index)
+      - Insert a value at a specified index in the list.
     * - **remove**\(Int index) 
       - Removes the item at the specified index from the list.
     * - **clear**\() 

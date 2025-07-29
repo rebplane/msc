@@ -141,11 +141,16 @@ Boolean **contains**\(String sequence)      Returns true if the String contains
 Boolean **equalsIgnoreCase**\(String other) Returns true if the String is equal
 
                                             except for case to *other*, false otherwise.
+Boolean **matches**\(String regex)          Returns true if the string matches a specified
+                                            regular expression.
+Boolean **startsWith**\(String start)       Returns true if the String starts with a
+                                            specified value.
 Int **indexOf**\(String sequence)           Returns the index the first occurrence
 
                                             of *sequence* starts at. If the String does
 
                                             not contain *sequence*, returns -1.
+Int **length**\()                           Returns the length of a String.
 String **replace**\(String old, String new) Replaces all occurrences of *old* with
                                             
                                             *new* in the String.
@@ -731,6 +736,9 @@ Table 9.14: Supported Methods for the Player type
       - Checks if this Player is a server
         
         operator.
+
+    * - String **getRank**\()
+      - Gets the rank of the player.
 
     * - **setResourcePack**\(String url, String hash) 
       - Request that the player’s client
@@ -1329,6 +1337,10 @@ Table 9.26: Supported Methods for the Item type
     * - String **getItemType**\() 
       - Gets the type of this item.
 
+    * - String **getDisplayName**\()
+      - Returns the custom name of an Item. (Returns null if the
+        Item does not have a custom name).
+
     * - Int **getMaxStackSize**\() 
       - Get the maximum stacksize for the material hold in
 
@@ -1350,6 +1362,9 @@ Table 9.26: Supported Methods for the Item type
       - Returns whether two items are equal, but does not
         
         consider stack size (amount).
+
+    * - Boolean **hasDisplayName**\()
+      - Returns true if an Item has a custom name.
 
 .. _appendix_spatial_types:
 

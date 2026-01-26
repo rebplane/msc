@@ -1,21 +1,34 @@
-## Documentation for MSC 2.0
+# MSC 2.0 Documentation
 
-The documentation and updates were written by rickyboy320 and CreepaShadowz and converted to restructuredText by rebplane.
+Documentation for MSC (Minr Script Code), a scripting language for the Minecraft server [Zero.Minr.Org](https://forums.minr.org).
 
-You can access the readthedocs site here: https://msc-documentation.readthedocs.io/en/latest/index.html
+The documentation was originally written by rickyboy320 and Alphaesia, converted to reStructuredText by rebplane, and updated by AK1089.
 
-## Generating the documentation locally
+**View online:** https://msc-documentation.readthedocs.io/en/latest/
 
-You probably want to create a virtual environment and start it up first. (https://docs.python.org/3/library/venv.html)
+## Building Locally
 
-Install `sphinx` and `sphinx-rtd-theme`:
+### Setup
 
+Create and activate a virtual environment:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
 ```
-pip install sphinx sphinx-rtd-theme
+
+Install dependencies:
+
+```bash
+pip install -r docs/requirements.txt
 ```
 
-`cd` into the `docs/` directory and run make to create your index.html in the `build/` folder
+### Build
 
+With the virtual environment activated (run `source .venv/bin/activate` first), start the auto-rebuilding dev server:
+
+```bash
+sphinx-autobuild docs/source docs/_build/html
 ```
-make html
-```
+
+View the documentation at http://localhost:8000. The page auto-reloads when you edit source files.

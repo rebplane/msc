@@ -1,12 +1,10 @@
 Version History/Changelog
-=================================
-
-.. contents::
+=========================
 
 .. _changelog_2_4_7:
 
 2.4.7
-=================
+------------
 
 **Additions**
 
@@ -19,7 +17,7 @@ Version History/Changelog
 .. _changelog_2_4_6:
 
 2.4.6
-=================
+------------
 
 **Additions**
 
@@ -34,7 +32,7 @@ Version History/Changelog
 .. _changelog_2_4_5:
 
 2.4.5
-=================
+------------
 
 **Additions**
 
@@ -58,7 +56,7 @@ Version History/Changelog
 .. _changelog_2_4_4:
 
 2.4.4
-=================
+------------
 
 **Additions**
 
@@ -70,7 +68,7 @@ Version History/Changelog
 .. _changelog_2_4_3:
 
 2.4.3
-=================
+------------
 
 **Additions**
 
@@ -79,7 +77,7 @@ Version History/Changelog
 .. _changelog_2_4_2:
 
 2.4.2
-=================
+------------
 
 **Additions**
 
@@ -88,7 +86,7 @@ Version History/Changelog
 .. _changelog_2_4_1:
 
 2.4.1
-=================
+------------
 
 **Additions**
 
@@ -97,7 +95,7 @@ Version History/Changelog
 .. _changelog_2_4_0:
 
 2.4.0
-=================
+------------
 
 **Additions**
 
@@ -124,7 +122,7 @@ Version History/Changelog
 .. _changelog_2_3_4:
 
 2.3.4
-=================
+------------
 
 **Fixes**
 - Op messages containing {{}} will now only send the result to the executing op.
@@ -132,7 +130,7 @@ Version History/Changelog
 .. _changelog_2_3_3:
 
 2.3.3
-=================
+------------
 
 **Fixes**
 - Fixed interact scripts triggering multiple times in rapid succession.
@@ -140,7 +138,7 @@ Version History/Changelog
 .. _changelog_2_3_1:
 
 2.3.2
-=================
+------------
 
 **Fixes**
 - Fixed interact scripts on cauldrons or waterloggable blocks not triggering on right click.
@@ -148,7 +146,7 @@ Version History/Changelog
 .. _changelog_2_3_0:
 
 2.3.0
-=================
+------------
 
 **Additions**
 
@@ -166,7 +164,7 @@ Version History/Changelog
 .. _changelog_2_2_2:
 
 2.2.2
-========================
+------------
 
 **Fixes**
 
@@ -175,7 +173,7 @@ Version History/Changelog
 .. _changelog_2_2_1:
 
 2.2.1
-========================
+------------
 
 **Additions**
 
@@ -184,7 +182,7 @@ Version History/Changelog
 .. _changelog_2_2_0:
 
 2.2.0
-========================
+------------
 
 **Additions**
 
@@ -213,7 +211,7 @@ Version History/Changelog
 .. _changelog_2_1_5:
 
 2.1.5
-========================
+------------
 
 **Additions**
 
@@ -226,7 +224,7 @@ Version History/Changelog
 .. _changelog_2_1_4:
 
 2.1.4
-========================
+------------
 
 **Additions**
 
@@ -235,7 +233,7 @@ Version History/Changelog
 .. _changelog_2_1_3:
 
 2.1.3
-========================
+------------
 
 **Additions**
 
@@ -250,7 +248,7 @@ Version History/Changelog
 .. _changelog_2_1_2:
 
 2.1.2
-========================
+------------
 
 **Additions**
 
@@ -261,7 +259,7 @@ Version History/Changelog
 .. _changelog_2_1_1:
 
 2.1.1
-========================
+------------
 
 **Additions**
 
@@ -279,7 +277,7 @@ Version History/Changelog
 .. _changelog_2_1:
 
 2.1.0
-=================================
+------------
 
 **Additions**
 
@@ -298,7 +296,7 @@ Version History/Changelog
 .. _changelog_2_0:
 
 2.0
-==================================
+------------
 
 **Note**
 

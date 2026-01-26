@@ -1,0 +1,208 @@
+/* Minecraft Output Formatting Colors */
+/* Using attribute selectors since Pygments prefixes custom tokens with - */
+
+/* Base colors (color resets formatting, so these are plain) */
+.highlight [class*="-Mc0"] { color: #000000; }  /* Black */
+.highlight [class*="-Mc1"] { color: #0000AA; }  /* Dark Blue */
+.highlight [class*="-Mc2"] { color: #00AA00; }  /* Dark Green */
+.highlight [class*="-Mc3"] { color: #00AAAA; }  /* Dark Aqua */
+.highlight [class*="-Mc4"] { color: #AA0000; }  /* Dark Red */
+.highlight [class*="-Mc5"] { color: #AA00AA; }  /* Dark Purple */
+.highlight [class*="-Mc6"] { color: #FFAA00; }  /* Gold */
+.highlight [class*="-Mc7"] { color: #AAAAAA; }  /* Gray */
+.highlight [class*="-Mc8"] { color: #555555; }  /* Dark Gray */
+.highlight [class*="-Mc9"] { color: #5555FF; }  /* Blue */
+.highlight [class*="-Mca"]:not([class*="-Mcal"]):not([class*="-Mcao"]):not([class*="-Mcan"]) { color: #55FF55; }  /* Green */
+.highlight [class*="-Mcb"]:not([class*="-Mcbl"]):not([class*="-Mcbo"]):not([class*="-Mcbn"]) { color: #55FFFF; }  /* Aqua */
+.highlight [class*="-Mcc"]:not([class*="-Mccl"]):not([class*="-Mcco"]):not([class*="-Mccn"]) { color: #FF5555; }  /* Red */
+.highlight [class*="-Mcd"]:not([class*="-Mcdl"]):not([class*="-Mcdo"]):not([class*="-Mcdn"]) { color: #FF55FF; }  /* Light Purple */
+.highlight [class*="-Mce"]:not([class*="-Mcel"]):not([class*="-Mceo"]):not([class*="-Mcen"]) { color: #FFFF55; }  /* Yellow */
+.highlight [class*="-Mcf"]:not([class*="-Mcfl"]):not([class*="-Mcfo"]):not([class*="-Mcfn"]) { color: #FFFFFF; }  /* White */
+
+/* Bold variants - match exact class names */
+.highlight [class$="-Mc0l"], .highlight [class*="-Mc0l "] { color: #000000; font-weight: bold; }
+.highlight [class$="-Mc1l"], .highlight [class*="-Mc1l "] { color: #0000AA; font-weight: bold; }
+.highlight [class$="-Mc2l"], .highlight [class*="-Mc2l "] { color: #00AA00; font-weight: bold; }
+.highlight [class$="-Mc3l"], .highlight [class*="-Mc3l "] { color: #00AAAA; font-weight: bold; }
+.highlight [class$="-Mc4l"], .highlight [class*="-Mc4l "] { color: #AA0000; font-weight: bold; }
+.highlight [class$="-Mc5l"], .highlight [class*="-Mc5l "] { color: #AA00AA; font-weight: bold; }
+.highlight [class$="-Mc6l"], .highlight [class*="-Mc6l "] { color: #FFAA00; font-weight: bold; }
+.highlight [class$="-Mc7l"], .highlight [class*="-Mc7l "] { color: #AAAAAA; font-weight: bold; }
+.highlight [class$="-Mc8l"], .highlight [class*="-Mc8l "] { color: #555555; font-weight: bold; }
+.highlight [class$="-Mc9l"], .highlight [class*="-Mc9l "] { color: #5555FF; font-weight: bold; }
+.highlight [class$="-Mcal"], .highlight [class*="-Mcal "] { color: #55FF55; font-weight: bold; }
+.highlight [class$="-Mcbl"], .highlight [class*="-Mcbl "] { color: #55FFFF; font-weight: bold; }
+.highlight [class$="-Mccl"], .highlight [class*="-Mccl "] { color: #FF5555; font-weight: bold; }
+.highlight [class$="-Mcdl"], .highlight [class*="-Mcdl "] { color: #FF55FF; font-weight: bold; }
+.highlight [class$="-Mcel"], .highlight [class*="-Mcel "] { color: #FFFF55; font-weight: bold; }
+.highlight [class$="-Mcfl"], .highlight [class*="-Mcfl "] { color: #FFFFFF; font-weight: bold; }
+
+/* Italic variants */
+.highlight [class$="-Mc0o"], .highlight [class*="-Mc0o "] { color: #000000; font-style: italic; }
+.highlight [class$="-Mc1o"], .highlight [class*="-Mc1o "] { color: #0000AA; font-style: italic; }
+.highlight [class$="-Mc2o"], .highlight [class*="-Mc2o "] { color: #00AA00; font-style: italic; }
+.highlight [class$="-Mc3o"], .highlight [class*="-Mc3o "] { color: #00AAAA; font-style: italic; }
+.highlight [class$="-Mc4o"], .highlight [class*="-Mc4o "] { color: #AA0000; font-style: italic; }
+.highlight [class$="-Mc5o"], .highlight [class*="-Mc5o "] { color: #AA00AA; font-style: italic; }
+.highlight [class$="-Mc6o"], .highlight [class*="-Mc6o "] { color: #FFAA00; font-style: italic; }
+.highlight [class$="-Mc7o"], .highlight [class*="-Mc7o "] { color: #AAAAAA; font-style: italic; }
+.highlight [class$="-Mc8o"], .highlight [class*="-Mc8o "] { color: #555555; font-style: italic; }
+.highlight [class$="-Mc9o"], .highlight [class*="-Mc9o "] { color: #5555FF; font-style: italic; }
+.highlight [class$="-Mcao"], .highlight [class*="-Mcao "] { color: #55FF55; font-style: italic; }
+.highlight [class$="-Mcbo"], .highlight [class*="-Mcbo "] { color: #55FFFF; font-style: italic; }
+.highlight [class$="-Mcco"], .highlight [class*="-Mcco "] { color: #FF5555; font-style: italic; }
+.highlight [class$="-Mcdo"], .highlight [class*="-Mcdo "] { color: #FF55FF; font-style: italic; }
+.highlight [class$="-Mceo"], .highlight [class*="-Mceo "] { color: #FFFF55; font-style: italic; }
+.highlight [class$="-Mcfo"], .highlight [class*="-Mcfo "] { color: #FFFFFF; font-style: italic; }
+
+/* Underline variants */
+.highlight [class$="-Mc0n"], .highlight [class*="-Mc0n "] { color: #000000; text-decoration: underline; }
+.highlight [class$="-Mc1n"], .highlight [class*="-Mc1n "] { color: #0000AA; text-decoration: underline; }
+.highlight [class$="-Mc2n"], .highlight [class*="-Mc2n "] { color: #00AA00; text-decoration: underline; }
+.highlight [class$="-Mc3n"], .highlight [class*="-Mc3n "] { color: #00AAAA; text-decoration: underline; }
+.highlight [class$="-Mc4n"], .highlight [class*="-Mc4n "] { color: #AA0000; text-decoration: underline; }
+.highlight [class$="-Mc5n"], .highlight [class*="-Mc5n "] { color: #AA00AA; text-decoration: underline; }
+.highlight [class$="-Mc6n"], .highlight [class*="-Mc6n "] { color: #FFAA00; text-decoration: underline; }
+.highlight [class$="-Mc7n"], .highlight [class*="-Mc7n "] { color: #AAAAAA; text-decoration: underline; }
+.highlight [class$="-Mc8n"], .highlight [class*="-Mc8n "] { color: #555555; text-decoration: underline; }
+.highlight [class$="-Mc9n"], .highlight [class*="-Mc9n "] { color: #5555FF; text-decoration: underline; }
+.highlight [class$="-Mcan"], .highlight [class*="-Mcan "] { color: #55FF55; text-decoration: underline; }
+.highlight [class$="-Mcbn"], .highlight [class*="-Mcbn "] { color: #55FFFF; text-decoration: underline; }
+.highlight [class$="-Mccn"], .highlight [class*="-Mccn "] { color: #FF5555; text-decoration: underline; }
+.highlight [class$="-Mcdn"], .highlight [class*="-Mcdn "] { color: #FF55FF; text-decoration: underline; }
+.highlight [class$="-Mcen"], .highlight [class*="-Mcen "] { color: #FFFF55; text-decoration: underline; }
+.highlight [class$="-Mcfn"], .highlight [class*="-Mcfn "] { color: #FFFFFF; text-decoration: underline; }
+
+/* Bold + Italic (lo) */
+.highlight [class$="-Mc0lo"], .highlight [class*="-Mc0lo "] { color: #000000; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc1lo"], .highlight [class*="-Mc1lo "] { color: #0000AA; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc2lo"], .highlight [class*="-Mc2lo "] { color: #00AA00; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc3lo"], .highlight [class*="-Mc3lo "] { color: #00AAAA; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc4lo"], .highlight [class*="-Mc4lo "] { color: #AA0000; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc5lo"], .highlight [class*="-Mc5lo "] { color: #AA00AA; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc6lo"], .highlight [class*="-Mc6lo "] { color: #FFAA00; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc7lo"], .highlight [class*="-Mc7lo "] { color: #AAAAAA; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc8lo"], .highlight [class*="-Mc8lo "] { color: #555555; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mc9lo"], .highlight [class*="-Mc9lo "] { color: #5555FF; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcalo"], .highlight [class*="-Mcalo "] { color: #55FF55; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcblo"], .highlight [class*="-Mcblo "] { color: #55FFFF; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcclo"], .highlight [class*="-Mcclo "] { color: #FF5555; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcdlo"], .highlight [class*="-Mcdlo "] { color: #FF55FF; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcelo"], .highlight [class*="-Mcelo "] { color: #FFFF55; font-weight: bold; font-style: italic; }
+.highlight [class$="-Mcflo"], .highlight [class*="-Mcflo "] { color: #FFFFFF; font-weight: bold; font-style: italic; }
+
+/* Bold + Underline (ln) */
+.highlight [class$="-Mc0ln"], .highlight [class*="-Mc0ln "] { color: #000000; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc1ln"], .highlight [class*="-Mc1ln "] { color: #0000AA; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc2ln"], .highlight [class*="-Mc2ln "] { color: #00AA00; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc3ln"], .highlight [class*="-Mc3ln "] { color: #00AAAA; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc4ln"], .highlight [class*="-Mc4ln "] { color: #AA0000; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc5ln"], .highlight [class*="-Mc5ln "] { color: #AA00AA; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc6ln"], .highlight [class*="-Mc6ln "] { color: #FFAA00; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc7ln"], .highlight [class*="-Mc7ln "] { color: #AAAAAA; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc8ln"], .highlight [class*="-Mc8ln "] { color: #555555; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mc9ln"], .highlight [class*="-Mc9ln "] { color: #5555FF; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mcaln"], .highlight [class*="-Mcaln "] { color: #55FF55; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mcbln"], .highlight [class*="-Mcbln "] { color: #55FFFF; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mccln"], .highlight [class*="-Mccln "] { color: #FF5555; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mcdln"], .highlight [class*="-Mcdln "] { color: #FF55FF; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mceln"], .highlight [class*="-Mceln "] { color: #FFFF55; font-weight: bold; text-decoration: underline; }
+.highlight [class$="-Mcfln"], .highlight [class*="-Mcfln "] { color: #FFFFFF; font-weight: bold; text-decoration: underline; }
+
+/* Italic + Underline (on) */
+.highlight [class$="-Mc0on"], .highlight [class*="-Mc0on "] { color: #000000; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc1on"], .highlight [class*="-Mc1on "] { color: #0000AA; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc2on"], .highlight [class*="-Mc2on "] { color: #00AA00; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc3on"], .highlight [class*="-Mc3on "] { color: #00AAAA; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc4on"], .highlight [class*="-Mc4on "] { color: #AA0000; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc5on"], .highlight [class*="-Mc5on "] { color: #AA00AA; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc6on"], .highlight [class*="-Mc6on "] { color: #FFAA00; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc7on"], .highlight [class*="-Mc7on "] { color: #AAAAAA; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc8on"], .highlight [class*="-Mc8on "] { color: #555555; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc9on"], .highlight [class*="-Mc9on "] { color: #5555FF; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcaon"], .highlight [class*="-Mcaon "] { color: #55FF55; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcbon"], .highlight [class*="-Mcbon "] { color: #55FFFF; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mccon"], .highlight [class*="-Mccon "] { color: #FF5555; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcdon"], .highlight [class*="-Mcdon "] { color: #FF55FF; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mceon"], .highlight [class*="-Mceon "] { color: #FFFF55; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcfon"], .highlight [class*="-Mcfon "] { color: #FFFFFF; font-style: italic; text-decoration: underline; }
+
+/* Bold + Italic + Underline (lon) */
+.highlight [class$="-Mc0lon"], .highlight [class*="-Mc0lon "] { color: #000000; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc1lon"], .highlight [class*="-Mc1lon "] { color: #0000AA; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc2lon"], .highlight [class*="-Mc2lon "] { color: #00AA00; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc3lon"], .highlight [class*="-Mc3lon "] { color: #00AAAA; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc4lon"], .highlight [class*="-Mc4lon "] { color: #AA0000; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc5lon"], .highlight [class*="-Mc5lon "] { color: #AA00AA; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc6lon"], .highlight [class*="-Mc6lon "] { color: #FFAA00; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc7lon"], .highlight [class*="-Mc7lon "] { color: #AAAAAA; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc8lon"], .highlight [class*="-Mc8lon "] { color: #555555; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mc9lon"], .highlight [class*="-Mc9lon "] { color: #5555FF; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcalon"], .highlight [class*="-Mcalon "] { color: #55FF55; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcblon"], .highlight [class*="-Mcblon "] { color: #55FFFF; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcclon"], .highlight [class*="-Mcclon "] { color: #FF5555; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcdlon"], .highlight [class*="-Mcdlon "] { color: #FF55FF; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcelon"], .highlight [class*="-Mcelon "] { color: #FFFF55; font-weight: bold; font-style: italic; text-decoration: underline; }
+.highlight [class$="-Mcflon"], .highlight [class*="-Mcflon "] { color: #FFFFFF; font-weight: bold; font-style: italic; text-decoration: underline; }
+
+/* Dark background for output blocks to make colors visible */
+.highlight-output .highlight {
+    background-color: #2b2b2b !important;
+}
+
+/* Custom RST roles for Minecraft formatting */
+.underline {
+    text-decoration: underline;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+.obfuscated {
+    background: linear-gradient(90deg, #888, #aaa, #888);
+    background-size: 200% 100%;
+    animation: obfuscate 0.1s linear infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@keyframes obfuscate {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+table.docutils {
+    table-layout: auto;
+    width: 100%;
+}
+
+table.docutils td:last-child {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Custom admonition styles for documentation accessibility */
+
+/* Beginner Note - green, friendly */
+.admonition.beginner-note {
+    background-color: #e8f5e9;
+    border-left: 4px solid #4caf50;
+}
+
+.admonition.beginner-note > .admonition-title {
+    background-color: #c8e6c9;
+    color: #2e7d32;
+}
+
+/* Technical Detail - red/coral, for programmers */
+.admonition.technical-detail {
+    background-color: #ffebee;
+    border-left: 4px solid #e57373;
+}
+
+.admonition.technical-detail > .admonition-title {
+    background-color: #ffcdd2;
+    color: #c62828;
+}

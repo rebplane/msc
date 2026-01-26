@@ -1,553 +1,479 @@
 Tutorial
-======================
+========
 
-This tutorial is designed to give players who are new to scripting a brief introduction to the MSC 2.0 language. We'll cover the basics on scripting and provide the most important points to remember without overcomplicating and going into too much detail. Once you're done with this tutorial, you should know how to create basic scripts such as dialogues and prompts, and have a general idea of how MSC 2.0 works and what you can do with it.
+This tutorial introduces MSC 2.0, the scripting language for Minr.  We'll cover the basics on scripting and provide the most important points to remember without overcomplicating things or going into too much detail. By the end, you'll know how to create dialogue scripts, use variables to track player progress, and build interactive prompts. For complete reference documentation, see the :ref:`appendix <appendix>`.
 
 .. contents:: Tutorial Contents
-
-.. _tutorial_desc:
+   :local:
 
 What is MSC?
+------------
+
+MSC (Minr Script Code) is the scripting language developed for Minr. It lets mapmakers add interactivity to their maps: dialogues with NPCs, puzzles that track player progress, timed challenges, and more.
+
+A script is a sequence of lines that execute from top to bottom when triggered. Each line starts with an **operator** (like ``@player`` or ``@if``) that determines what that line does.
+
+Here's a simple script that greets the player:
+
+.. code-block:: msc
+
+    @player Welcome to my map!
+    @player Good luck!
+
+When triggered, this displays two messages in the player's chat.
+
+
+Script Types
+------------
+
+Scripts can be attached to blocks, entities, or regions. The **script type** determines how the script is triggered:
+
+- **interact**: Triggered when a player right-clicks the block.
+- **walk**: Triggered when a player enters the space above a block (either by walking onto the block or via jumping into the space).
+- **ground**: Triggered when a player stands on the block (not jumping).
+- **entity**: Triggered when a player right-clicks an entity (armor stand, mob, etc.).
+- **area**: Triggered when when a player enters a WorldGuard region.
+- **function**: Not triggered automatically: functions can be called explicitly from other scripts. See :ref:`functions <functions>` for more details.
+
+Script Operators
 ----------------
 
-MSC is the scripting language developed for Minr. It is extremely powerful and often simpler than command blocks. Over the years, its use in maps and on the server has grown enormously, allowing for anyone to learn the language.
+Every line in a script starts with a single **operator** that determines what the line does. Here are the most common ones:
 
-Every script consists of script lines, which are the actual content of a script. A script is executed from top to bottom, waiting, delaying and executing commands as necessary. 
+**@player <message>** displays a message to the player in chat.
 
+.. code-block:: msc
 
-.. _tutorial_script_types:
+    @player Hello and welcome to my map!
 
-Script types
-----------------
+**@bypass <command>** executes a command with elevated permissions. Use this for commands like ``/teleport`` or ``/setblock`` that players can't normally run. **@command <command>** tries to do the same, but only works for commands the player already has permission to use.
 
-Before we create our first script, an introduction of the types of scripts you can create are necessary.
+.. code-block:: msc
 
-There are 6 types of scripts - more detailed information can be found :ref:`here <scripts_script_types>`. A basic rundown of the types is below:
+    # This will teleport the player to coordinates (0, 100, 90)
+    @bypass /teleport @s 0 100 90
 
-**interact** - placing an interact script on a block causes the script to be triggered upon the player clicking the block (e.g., stone, button, or any other block). The interact script type is often used for chat answer submissions, submit buttons, dialogue, and much more.
-
-**walk** - placing a walk script on a block causes the script to be triggered when the player walks over the block containing the script. If the script was bound to a block that is now removed, the script still triggers when the player is in the space just above the block. The walk script type is often used for traps, story elements, resets, and much more.
-
-**ground** - placing a ground script on a block causes the script to be triggered only when the player walks over the block. The script triggers when the player is on the block, and not while jumping on it, or if the block is air. The ground script type can be used for crumbling pathways and other effects that require the player to stand on the block.
-
-**entity** - placing an entity script on an entity (e.g. armor stand, mob, etc.) causes the script to trigger when a player clicks the entity. The script gets removed once the entity dies or despawns. The entity script is often used for dialogue.
-
-**area** - area scripts can be placed on WorldGuard regions. The script gets triggered once when a player enters the region.
-
-**function** - We will get into this later as it is more complex for those who have not coded before. To create content in a function, the function type is used. A function is always explicitly called from a script or other function. When adding script lines to a function, the function has to be defined using the function command.
-
-.. _tutorial_script_operators:
-
-Script operators
--------------------
-
-Every line within a script contains exactly one operator. The operator gives meaning to the line, because it determines what has to be done with the arguments. There are operators to execute commands, control the script flow and manipulate variables. An overview is located :ref:`here <script_operators>` and a full summary is located here: :ref:`here <appendix_scripts_script_operators>`
-
-There are a good amount of operators, so we'll introduce you to the most used ones first.
-
-**@command <command>**
-
-Execute a command as the player. Can only execute the commands the player can also execute. For example, the script
-
-.. code-block:: python
-    
-    @command /tp 0 100 90
-
-will not work for non staff members. However, if a staff member were to run the command, it would work, as staff members have access to /tp.
-
-The following script:
-
-.. code-block:: python
-
+    # This will send the player to spawn.
     @command /spawn
 
-will work for all players, as all players are able to do /spawn
+    # A staff member running this line will give themselves 5 diamonds. But a regular player won't be able to, since they lack permission to use /give.
+    @command /give @s minecraft:diamond 5
 
-**@bypass <command>**
+**@delay <time>** pauses the script for the specified duration. Time can be specified in ticks (40t or 40 = 40 ticks, or 2 seconds), seconds (2s = 2 seconds), or minutes (2m = 2 minutes).
 
-Execute a command as the player in an elevated position. Allows the execution of most admin commands. This is very useful for commands such as /tp or /setblock, which are only available to staff. For example, if we write the same script as before with bypass, it works for all players and tps them to the coordinates 0 100 90:
+.. code-block:: msc
 
-.. code-block:: python
-    
-    @bypass /tp 0 100 90
+    @player Loading...
+    @delay 2s
+    @player Done!
 
-**@player <message>**
+For a complete list of operators, see :ref:`Script Operators <appendix_scripts_script_operators>`.
 
-Displays the given message to the player in the chat. For example, if I were to create the following script:
+
+Managing Scripts
+----------------
+
+Scripts are created and managed using the ``/script`` command in Minecraft.
+
+Creating a Script
+^^^^^^^^^^^^^^^^^
+
+To add a line to a script, use:
 
 .. code-block:: console
 
-    @player Hello!
+    /script create <type> <@operator> <content>
 
-and then click it, I would be displayed
+Then click the block (or entity) to attach it. For example:
 
 .. code-block:: console
 
-    Hello!
+    /script create interact @player Hello!
 
-in my Minecraft chat.
+After running this command, click a block to attach the script. Now when any player right-clicks that block, they'll see "Hello!" in chat.
+
+To add more lines to an existing script, run ``/script create`` again and click the same block. Each new line is appended to the end of the script.
+
+Viewing or Removing a Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To see what script is attached to a block or entity, use:
+
+.. code-block:: console
+
+    /script view <type>
+
+Then click the block or entity. The script contents will be displayed in chat.
+
+To remove a script, similarly use:
+
+.. code-block:: console
+
+    /script remove <type>
 
 
-.. _tutorial_script_actions:
-
-Script actions
+Using paste.minr.org
 --------------------
 
-Here, we'll show how you can create, delete, and modify a script on the server. More details are located :ref:`here <scripts_action>`.
+Typing long scripts through chat commands quickly becomes tedious. For anything beyond a few lines, use `paste.minr.org <https://paste.minr.org/>`_. This is a web editor to write scripts without having to enter them line-by-line.
 
-**/script create <@operator> <script>**
+**To import a script:**
 
-Adds a line to the end of the script. For example, if I were to run this on the server and place it on a block by clicking the block:
+1. Write your script at paste.minr.org
+2. Click **Save** in the top right, or use ``Ctrl+S``
+3. Copy the identifier from the URL (the random characters at the end, e.g., ``fomomokumo``)
+4. In Minecraft, run: ``/script import <type> <identifier>``
+5. Click the block or entity to attach the script
 
-.. code-block:: console
+**To export a script:**
 
-    /script create interact @player hi!
+1. Run ``/script export <type>`` and click the block or entity
+2. A paste.minr.org link will appear in chat
+3. Click **Duplicate & Edit** (``Ctrl+D``) on the page to modify it, then save and re-import
 
-The block would have the following interact script attached to it:
-
-.. code-block:: console
-
-    @player hi!
-
-You can also add a script line with /script create <line> <@operator> <script> to add the script on the given line number instead.
-
-**/script view <type>**
-
-View the lines of the script in chat. For example, if I were to view the script I placed on the block in the previous paragraph, I run this command and then click the block I placed it on:
+You can also manage scripts without having to click on blocks by specifying coordinates or entity UUIDs. For example:
 
 .. code-block:: console
 
-    /script view interact
+    /script create interact 100 64 -200 Theta @player Welcome to the map!
+    /script view walk Theta_the_end 100 64 -200
+    /script remove entity 8c8f8962-37e4-4591-a19e-8a12e73cee21
 
-And in my chat, I would see
-
-.. code-block:: console
-
-    @player hi!
-
-**/script remove <type>**
-
-Removes the script with the given type. For example, if I were to remove the script that we created earlier, I would run this command and click the block I placed it on:
-
-.. code-block:: console
-
-    /script remove interact
-
-and the block would no longer have an interact script attached to it.
-
-.. _tutorial_hastebin:
-
-Paste.minr.org
---------------
-
-Minecraft has a pretty terrible way of inputting scripts. There’s the option through chat,
-but that gets unreadable fast, and does not support multiple lines. We could use books,
-but they have limited horizontal space, which means most lines would wrap. Signs are
-no option either. There must be a better way to type scripts, right?
-
-MSC 2 supports `paste.minr.org <https://paste.minr.org/>`_, which is an online coding pastebin based on Hastebin. You can write text, press
-save, and a link will be generated that you can share with everyone. MSC 2.0 takes this
-raw text line by line, and converts it to a script.
-
-Script can be imported from paste.minr.org using:
-
-.. code-block:: console
-
-    /script import ... <id>
-
-and exported using
-
-.. code-block:: console
-
-    /script export ...
-
-When you save your piece of text on paste.minr.org, your URL will be appended by an identifier
-(a few random characters). You should use this identifier as the id when importing.
-
-Exporting will upload the current script to paste.minr.org, after which you can clone and edit
-the script, and import the edited script.
-
-Paste.minr.org uses automatically detected programming languages, resulting in MSC lines
-being picked up as some programming language. Paste.minr.org will automatically include
-the programming language’s extension. Whether you include the extension, or even the
-entire URL, or not, it will work regardless.
-
-
-Example
-
-.. image:: images/paste-1.PNG
-
-Figure 5.1: Write a script in paste.minr.org
-
-.. image:: images/hastebin2.PNG
-
-Figure 5.2: Save the script.
-
-.. image:: images/paste-3.PNG
-    
-Figure 5.3: Find the identifier.
-
-.. code-block:: console
-
-    /script import interact fomomokumo
-
-Figure 5.4: Run the import command, and press the block. That’s it!
-
-Exporting a script is as easy as running
-
-.. code-block:: console
-
-    /script export interact
-
-and clicking the block, after which a link to the paste.minr.org will be generated. To edit this
-script, you can press the edit button:
-
-.. image:: images/hastebin4.PNG
-
-Figure 5.5: Click the edit button, and start editing. Then follow the instructions above
-to import the script again.
-
-.. _tutorial_first_script:
-
-Creating a dialogue script
-----------------------------
-
-And now finally, we're ready to start creating our first script! We will create a dialogue script here. Dialogues are used when you want the player to be shown some text in chat, for example a dialogue with an NPC.
-
-For example, if we want our armor stand to say the message "John: Hi!" in chat, we will run this command and click the armor stand to add the script onto it:
-
-.. code-block:: console
-
-    /script create entity @player John: Hello!
-
-And whenever you click, the armor stand, you should see the following in chat:
-
-.. code-block:: console
-
-    John: Hello!
-
-Chat messages are colored and styled by putting their color code in front of them. You can see https://www.digminecraft.com/lists/color_list_pc.php for a simple list of color codes. For example, if I want the previous script to be in red, I'd create it like this:
-
-.. code-block:: console
-
-    /script create entity @player &cJohn: Hello!
-
-.. _tutorial_advanced_dialogue:
-
-More advanced dialogue
--------------------------
-
-Two control operators that are frequently used with chat scripts are @cooldown and @delay.
-
-**@delay <time>** 
-
-Delays the rest of the executed script by the specified time. This is useful so that if you have an NPC saying a lot of lines, you don't get all the lines spammed to you all at once.
-
-**@cooldown <time>** 
-
-The specified time needs to pass between script executions. This is useful for long dialogues. For example, if you have a dialogue that takes 30 seconds to complete, you don't want the player to be able to run the dialogue again while they're still in the middle of their previous dialogue! Thus, you'd set the cooldown to be 30 seconds or longer.
-
-If we have the following script and we trigger it, the player must wait 10 seconds before they can trigger the script again. "John: Hello!" displays in chat, and then after 5 seconds pass, we see "John: Bye!". 
-
-.. code-block:: console
-
-    @cooldown 10s
-    /script create entity @player &4&lJohn: &dHello!
-    @delay 5s
-    /script create entity @player &4&lJohn: &dBye!
-
-
-.. _tutorial_variables:
-
-Variables
+Color Codes
 -----------
 
-A variable is a way of storing information. The Type of the variable determines in what format the value is stored and what operations can be performed on the value. 
+Messages can be colored and styled using ``&`` codes. For example:
 
-Whenever a variable is defined, the Type is always the word immediately preceding the variable's name. For example, the variable *name* defined as:
+.. code-block:: msc
 
-.. code-block:: python
+    @player &cThis is red, but &athis is green!
+    @player &l&nThis is bold and underlined!
+    @player &11 &22 &33 &44 &55 &66 &77 &88 &99 &aa &bb &cc &dd &ee &ff
+    @player &#FF5733This is custom orange text!
 
-    @define String name
+The player sees:
 
-has the type *String*
+.. code-block:: output
 
-You can perform operations of variables with @var. For example:
+    &cThis is red, but &athis is green!
+    &l&nThis is bold and underlined!
+    &11 &22 &33 &44 &55 &66 &77 &88 &99 &aa &bb &cc &dd &ee &ff
+    &#FF5733This is custom orange text!
+
+Common codes include:
+
+- ``&0``-``&9``, ``&a``-``&f``: Colors (black through white)
+- ``&k``: :obfuscated:`Obfuscated` (random characters)
+- ``&l``: **Bold**
+- ``&m``: :strike:`Strikethrough`
+- ``&n``: :underline:`Underline`
+- ``&o``: *Italic*
+- ``&r``: Reset formatting
+
+See `this reference <https://www.digminecraft.com/lists/color_list_pc.php>`_ for a complete list. Note that the color codes reset the other formatting, so ``&c&lBold Red`` works, but ``&l&cBold Red`` results in normal red text.
 
 
-.. code-block:: python
+Example: NPC Dialogue
+---------------------
 
-    @define String name = "Ricky"
-    @var name  = name + "boy"
-    @player {{name}}
+Let's create a dialogue where an NPC greets the player, pauses, then says goodbye:
 
-will display
+.. code-block:: msc
 
-.. code-block::
+    @cooldown 10s
+    @player &6&lJohn&f: Hello there, traveler!
+    @delay 3s
+    @player &6&lJohn&f: Safe travels!
 
-    Rickyboy
+The ``@cooldown 10s`` prevents the player from retriggering the dialogue while it's still playing (or shortly after). This shows as:
 
-MSC 2.0 comes with a set of predefined types which can be used at any time from any namespace. You can view the list :ref:`here <appendix_built_in_types>`
+.. code-block:: output
 
-.. _tutorial_qualifiers:
+    &6&lJohn&f: Hello there, traveler!
+    &6&lJohn&f: Safe travels!
 
-Qualifiers
--------------
+with a 3-second pause between messages.
 
-When defining a new type or namespace, sometimes it is useful to have variables that are player relative, or a variable that has a constant value. There are two qualifiers:
 
-**relative** 
 
-A variable that is player-bound. This is MSC 2’s way of defining per-player variables, rather than shared variables. For example, if you have a map where a player needs to collect a certain number of items and you store the number of items they collected in a variable, you want that to be stored *per player* - you don't want every player to have the same item count!
+Expressions
+-----------
 
-**final**
+MSC automatically evaluates expressions inside double curly braces like ``{{expression}}``. Anything inside the braces is computed and replaced with the result:
 
-A constant variable. Once initialized cannot be changed
+.. code-block:: msc
 
-.. _local_variables:
+    @player 2 + 2 = {{2 + 2}}
 
-Writing a script that uses local variables
-----------------------------------------------
+.. code-block:: output
 
-You can define a local variable like so:
+    2 + 2 = 4
 
-.. code-block:: python
+Expressions can include arithmetic, function calls, and variable references. They work anywhere in a script line.
 
-    @define <Type> <name> [= expression]
 
-For example, the following would print Hello World! to the player when they trigger the script.
+Variables
+---------
 
-.. code-block:: python
+Variables store values that can be used and modified throughout a script.
 
-    @define String message = "Hello World!"
-    @player {{message}}
+Defining Variables
+^^^^^^^^^^^^^^^^^^
 
-Above, *String* is the type of the variable, *message* is the variable name and "Hello World!" is the string stored in the *message* variable.
+Use ``@define`` to create a variable:
 
-.. _tutorial_braces:
+.. code-block:: msc
 
-Double curly braces
------------------------------
+    @define <Type> <name> = <value>
 
-You can use double curly braces {{ }} to display a variable's contents inside it. As shown above, you can do:
+For example:
 
-.. code-block:: python
+.. code-block:: msc
 
-    @define String message = "Hello World!"
-    @player {{message}}
+    @define String greeting = "Hello!"
+    @define Int count = 0
+    @define Boolean found = false
 
-to display the following to the player:
+Modifying Variables
+^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: console
+Use ``@var`` to change a variable's value:
 
-    Hello World!
+.. code-block:: msc
 
-You can do math in them as well (among other things)!
+    @define Int count = 1
+    @var count = count + 1
+    @player The count is now {{count}}
 
-.. code-block:: python
+.. code-block:: output
 
-    @player {{5 + 5}}
+    The count is now 2
 
-will display the following to the player:
+Using Variables in Messages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: 
+Use ``{{ }}`` to insert variable values into messages:
 
-    10
+.. code-block:: msc
 
-.. _tutorial_namespaces:
+    @define String name = "Steve"
+    @player &eHello, {{name}}!
+
+.. code-block:: output
+
+    &eHello, Steve!
+
 
 Namespaces
--------------
+----------
 
-A namespace consists of variables, functions, and types. A user can define a namespace using a unique name. You can add a namespace to your script by adding @using <namespace_name> to line 1 of your script.
+Variables defined with ``@define`` inside a script are local. They exist only while the script runs and are deleted when it finishes. To keep variables across script executions (or share them between scripts), you need a namespace.
 
-If a namespace is undefined (you do not include a @using operator in the script), the local namespace will be used - the local namespace contains variables that are not persistent. The local namespace is deleted when the script terminates. Thus, in order to have variables that you can keep throughout different scripts, you need to define them in a namespace.
+A namespace is a container for persistent variables and functions. Variables in a namespace keep their values between script runs.
 
-Namespaces can be created with **/namespace define <name>**. For example, to create a namespace called learnmsc:
+Creating Namespace Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: 
-
-    /namespace define learnmsc
-
-You can add variables to a namespace with **/variable define <namespace> [qualifier] <Type> <name> [= expression]**. 
-
-You can set a variable's value once it has already been defined with **/variable set <namespace> <name> = <expression>**.
-
-A more concrete example is below:
-
-I create a namespace learnmsc:
-
-.. code-block:: 
-
-    /namespace define learnmsc
-
-I define two variables: message (type String) and number (type Int):
-
-
-.. code-block:: 
-
-    /variable define learnmsc String message = "Hello"
-    /variable define learnmsc Int number = 1
-
-I use it in a script:
-
-.. code-block:: python
-
-    @using learnmsc
-    @player {{message}}
-    @var number = number + number
-    @player {{number}}
-
-.. code-block::
-
-    Hello
-    2
-
-.. _tutorial_branching_operators:
-
-Branching Operators
----------------------------
-
-Sometimes a script needs to conditionally execute a part of the script. For this reason
-we have branching operators, which provide ways to cause different execution flows
-using variables. The branching operators can be nested, causing more and more possible
-execution paths. Be warned, as increasing the amount of execution paths greatly
-complexifies the script.
-
-**@if <Boolean expression>**
-
-Takes an expression that evaluates to a Boolean. If the Boolean is true, the following
-section is executed, if it is false, the section is skipped until reaching an @elseif, @else
-or @fi of the same level.
-
-**@else**
-
-Executes the following section if the preceding @if and @elseif operators of the same
-level were false.
-
-**@elseif<Boolean expression>**
-
-Executes the following section if the preceding @if and @elseif operators of the same
-level were false, and the expression of this @elseif evaluates to true.
-
-**@fi**
-
-Ends the conditional section. Any @if, @else or @elseif operators of the same level will
-no longer apply after this operator.
-
-**@return**
-Stops the execution of the current script or function, and optionally returns a value.
-
-Because the branching operators can be nested, the script maintains an ’if level’ to
-keep track of which @if has impact on which @else and @elseif operators. This level is
-demonstrated visually through the use of indentation in both this document and any
-script viewings (such as /scripts view).
-
-.. code-block:: python
-
-    @if true
-        @player 1
-        @return
-    @fi
-    @player 2
+Use the ``/namespace`` command in Minecraft to define a namespace:
 
 .. code-block:: console
-    
-    1
 
-.. _tutorial_example2:
+    /namespace define mymap
 
-Writing a simple counting script
--------------------------------------
+To create variables within that namespace, use the ``/variable`` command:
 
-First, I'll create the namespace learnmsc
+.. code-block:: console
 
-.. code-block:: 
+    /variable define <namespace> <Type> <name> = <value>
 
-    /namespace define learnmsc
+For example:
 
-I define the variable *count* of type relative Int (remember, relative is a per-player variable!). I set the initial value to 0 since the player starts with clicking the block 0 times.
+.. code-block:: console
 
-.. code-block:: 
+    /variable define mymap Int score = 0
+    /variable define mymap String secretWord = "banana"
 
-    /variable define relative Int count = 0
+Using a Namespace in Scripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-I put the following code onto it:
+Add ``@using <namespace>`` at the top of your script to access its variables:
 
-.. code-block:: 
+.. code-block:: msc
 
-    @using learnmsc
-    @var count = count + 1
-    @player You clicked this block {{count}} times!
+    @using mymap
+    @var score = score + 10
+    @player Your score is now {{score}}
 
-This will send the player the number of times they clicked the block in chat, whenever they click on it.
+Each time this script runs, the score increases by 10 and persists.
 
-.. _tutorial_example3:
+You can also specify the namespace explicitly when accessing variables, rather than using ``@using``:
 
-Writing a simple script to check if the player already clicked a block
---------------------------------------------------------------------------
+.. code-block:: msc
 
-First, I'll create the namespace learnmsc
+    @var mymap::score = mymap::score + 5
+    @player The score is now {{mymap::score}}
 
-.. code-block:: 
 
-    /namespace define learnmsc
+Relative Variables
+------------------
 
-I define the variable *clicked* of type relative Boolean (remember, relative is a per-player variable!). I set the initial value to False since the player has not clicked the block yet.
+By default, namespace variables are shared, which means all players see the same value. To give each player their own copy, use the ``relative`` qualifier:
 
-.. code-block:: 
+.. code-block:: console
 
-    /variable define learnmsc relative Boolean clicked = false
+    /variable define mymap relative Int personalScore = 0
 
-I add the following code to a block (for example, an egg head):
+Now each player has their own ``personalScore`` that starts at 0. 
 
-.. code-block::
+We can use this to create a click counter. First, create the namespace and variable:
 
-    @using learnmsc
+.. code-block:: console
 
-    @if clicked
-        @player You already found this egg!
+    /namespace define mymap
+    /variable define mymap relative Int clicks = 0
+
+Then create this script:
+
+.. code-block:: msc
+
+    @using mymap
+    @var clicks = clicks + 1
+    @player &eNumber of clicks so far: &d{{clicks}}
+
+Each player sees their own click count.
+
+.. code-block:: output
+
+    &eNumber of clicks so far: &d1
+    &eNumber of clicks so far: &d2
+    (for another player)
+    &eNumber of clicks so far: &d1
+
+
+Branching with @if
+------------------
+
+Scripts can make decisions using ``@if``, ``@else``, and ``@fi``:
+
+.. code-block:: msc
+
+    @if <condition>
+        # code here only runs if the condition is true
+    @elseif <other condition>
+        # code here runs if the first condition is false but this one is true
     @else
-        @player Congrats! You found this egg!
-        @var clicked = true
+        # code here only runs if none of the above conditions are true
     @fi
 
+The ``@elseif`` and ``@else`` sections are optional. ``@fi`` marks the end of the conditional block. For example:
 
-This script will tell the player "Congrats! You found this egg!" if they have not clicked it before, and then set clicked to True. Thus, the next time they click the egg, clicked will be True, thus the if branch is evaluated, giving the player "You already found this egg!"
+.. code-block:: msc
 
-.. _tutorial_chat_operators:
+    @define Int x = 5
 
-Chat Operators
--------------------
-
-There are two chat operators - @chatscript and @prompt. We will look at @prompt as it is more widely used, but you can see the documentation for chatscript as well: :ref:`Chat Operators <scripts_chat_operators>`.
-
-**@prompt <time> <variable> [message]**
-
-Halts the script until the player types something. If time runs out, the script ends here, sending the message the optional message, or ’Prompt expired’ otherwise. Message supports color codes with &.
-
-If the player types something in time, the text the player typed is stored in the passed variable. Therefore, variable has to be of type String.
-
-.. _tutorial_answer_prompt:
-
-Creating an answer prompt
------------------------------
-
-Here, we'll ask the player what color a banana is. We give them 30 seconds to answer - if they go over the time limit, they get "You took too long. Try again!" and the script terminates. The answer, obviously, is yellow, and will tell them "Correct!" if they successfully answer. If they type anything else, they will get "Incorrect!"
-
-You typically want to run the command .equalsIgnoreCase() on your input. That way, if the user answers with "Yellow", or "YELLOW" (which are both correct!), etc., it will still match with "yellow", as equalsIgnoreCase compares the characters without regard for capitalization.
-
-.. code-block::
-
-    @define String user_input
-
-    @player What color is a banana?
-
-    @prompt 30s user_input You took too long. Try again!
-    @if user_input.equalsIgnoreCase("yellow")
-        @player Correct!
+    @if x > 10
+        @player x is greater than 10
+    @elseif x > 3
+        @player x is greater than 3
     @else
-        @player Incorrect.
+        @player x is 3 or less
     @fi
 
-Congrats on getting through the tutorial! More coming soon.
+.. code-block:: output
+
+    x is greater than 3
+
+Example: Collectible Egg
+------------------------
+
+Here's an example script for an egg that can only be collected once per player. First, we set up the namespace and variable:
+
+.. code-block:: console
+
+    /namespace define mymap
+    /variable define mymap relative Boolean eggCollected = false
+
+Then create this script and attach it to an egg block:
+
+.. code-block:: msc
+
+    @using mymap
+    @if eggCollected
+        @player &cYou have already found this egg!
+    @else
+        @player &aCongratulations! You found a secret egg!
+        @var eggCollected = true
+    @fi
+
+The first time a player interacts with the egg, they see:
+
+.. code-block:: output
+
+    &aCongratulations! You found a secret egg!
+
+Subsequent interactions show:
+
+.. code-block:: output
+
+    &cYou have already found this egg!
+
+
+Chat Input with @prompt
+-----------------------
+
+The ``@prompt`` operator pauses the script and waits for the player to type something in chat:
+
+.. code-block:: msc
+
+    @prompt <timeout> <variable> [timeout message]
+
+- **timeout**: How long to wait (e.g., ``30s``)
+- **variable**: A String variable to store the player's input
+- **timeout message**: Optional message shown if time runs out (default: "Prompt expired")
+
+Note that the prompt does not give instructions to the player; you should display a message **before** the prompt to tell them to type something.
+
+**Example: Quiz Question**
+
+.. code-block:: msc
+
+    @define String player_input
+
+    @player &dWhat color is a banana?
+    @prompt 30s player_input You took too long!
+
+    @if player_input.equalsIgnoreCase("yellow")
+        @player &aCorrect!
+    @else
+        @player &cIncorrect. The answer was yellow.
+    @fi
+
+The ``.equalsIgnoreCase()`` method compares strings ignoring capitalization, so "Yellow", "YELLOW", and "yellow" all match. The player sees:
+
+.. code-block:: output
+
+    &dWhat color is a banana?
+    &aCorrect!                            &7(if player types "yellow" within 30 seconds)
+    &cIncorrect. The answer was yellow.   &7(if player types anything else)
+    &eYou took too long!                  &7(if player doesn't respond in time)
+
+@return
+-------
+
+The ``@return`` operator immediately stops the script:
+
+.. code-block:: msc
+
+    @if alreadyCompleted
+        @player You've already done this!
+        @return
+    @fi
+    @player Starting the challenge...
+
+This is useful for early exits when a condition is met.
+
+
+Next Steps
+----------
+
+You now know the fundamentals of MSC! To learn more, you can work through the full documentation.

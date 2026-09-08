@@ -1,6 +1,29 @@
 Version History/Changelog
 =========================
 
+.. _changelog_2_5_0:
+
+2.5.0
+------------
+
+**Additions**
+
+- Added new Quaternion type:
+    - Multiple constructors for usage in Minecraft including from yaw and pitch​
+    - Multiplication with Vector3s to rotate them using the Quaternion​
+    - Multiplication with other Quaternions to combine rotations​
+    - Most common mathematical functions including the dot product and the inverse​
+    - toString method formatted for use in Display Entity commands​
+- Expanded math namespace:
+    - Added min and max functions for each Int, Long, Float and Double​
+    - Added round functions for each Float and Double​
+    - Added roundToPlaces(Double value, Int places) function​
+    - Added atan2 functions for degrees and radians​
+- Added miscellaneous functions and methods:
+    - Added getPing() method to the Player type​
+    - Added getMaterial(String value) function to the Material namespace to dynamically retrieve Materials using the names of their respective variable​
+    - Added getBlockDataValue(String key) method to the Block type to more easily retrieve block states​
+
 .. _changelog_2_4_7:
 
 2.4.7

@@ -434,6 +434,9 @@ Represents an online Minecraft player.
    * - ``getPlayerTimeOffset()``
      - Long
      - Player's time offset from server.
+   * - ``getPing()``
+     - Float
+     - Player's current ping.
    * - ``getPlayerWeather()``
      - String
      - Player's current weather type.
@@ -756,6 +759,9 @@ Represents a block in the Minecraft world.
    * - ``getBlockType()``
      - String
      - Block type (magic value, may change).
+   * - ``getBlockDataValue(String key)``
+     - String
+     - Extracts the value of the given Block Data/State key. See `Minecraft Block States <https://minecraft.wiki/w/Block_states>`_.
    * - ``getLightFromBlocks()``
      - Int
      - Light from nearby blocks.
@@ -1118,6 +1124,82 @@ Vector3
    * - ``transform2D(Double angle, Double aboutX, Double aboutZ, Double translateX, Double translateZ)``
      - Vector3
      - 2D transform in XZ plane.
+
+Quaternion
+^^^^^^^
+
+| Quaternion with Double precision, describing a rotation in 3D space.
+| Particularly useful for application with display entities.
+| This implementation was made with Minecraft use in mind, mathematical convention may differ.
+
+| Multiply with Vector3 to rotate the Vector3 using the Quaternion.
+| Multiply with another Quaternion to combine both rotations into one Quaternion.
+
+**Default value:** ``Identity Quaternion(0,0,0,1)``
+
+.. list-table::
+   :widths: 50 50
+   :header-rows: 1
+
+   * - Constructor
+     - Description
+   * - ``Quaternion(Double x, Double y, Double z, Double w)``
+     - Create from Double components.
+   * - ``Quaternion(Vector3 left, Vector3 up, Vector3 forward)``
+     - Create from reference coordinate system. Describes the rotation from the Minecraft default into the specified reference system.
+   * - ``Quaternion(Vector3 axis, Double angle)``
+     - Create from Axis and Angle in degrees. Describes the rotation around an axis by the specified angle.
+   * - ``Quaternion(Vector3 from, Vector3 to)``
+     - Create from Vector3 from and Vector3 to. Describes the shortest rotation to turn Vector3 from into Vector3 to.
+   * - ``Quaternion(Double yaw, Double pitch)``
+     - Create from yaw and pitch. Describes the rotation from the Minecraft default facing to the facing of the specified yaw and pitch.
+
+.. list-table::
+   :widths: 55 15 30
+   :header-rows: 1
+
+   * - Method
+     - Return Type
+     - Description
+   * - ``norm()``
+     - Double
+     - Norm or magnitude of the quaternion.
+   * - ``normSquared()``
+     - Double
+     - Norm or magnitude of the quaternion squared.
+   * - ``normalize()``
+     - Location
+     - Unit quaternion, required for clean rotations.
+   * - ``conjugate()``
+     - Quaternion
+     - Negates the vector part of the quaternion.
+   * - ``inverse()``
+     - Quaternion
+     - Returns the multiplicative inverse of the quaternion. For unit quaternions, the inverse equals the conjugate.
+   * - ``dot(Quaternion other)``
+     - Double
+     - Dot product with other. Describes the alignment of the two quaternions.
+   * - ``vectorPart()``
+     - Vector3
+     - The vector part of the quaternion.
+   * - ``scalarPart()``
+     - Double
+     - The scalar part of the quaternion. Equals the w component.
+   * - ``getX()``
+     - Double
+     - Get the X component.
+   * - ``getY()``
+     - Double
+     - Get the Y component.
+   * - ``getZ()``
+     - Double
+     - Get the Z component.
+   * - ``getW()``
+     - Double
+     - Get the W component.
+   * - ``string()``
+     - String
+     - Returns string representation. Formatted for direct use in display entity commands.
 
 BlockVector3
 ^^^^^^^^^^^^

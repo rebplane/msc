@@ -157,7 +157,16 @@ Material/block type utilities.
      - Material
      - Represents a zombified piglin spawn egg item.
 
-The material namespace has no functions.
+.. list-table::
+   :widths: 45 15 40
+   :header-rows: 1
+
+   * - Function
+     - Return Type
+     - Description
+   * - ``getMaterial(String value)``
+     - Material
+     - Get the Material given the String name of its variable in this namespace.
 
 math
 ----
@@ -186,6 +195,39 @@ Common mathematical operations.
    * - ``ceil(Double x)``
      - Int
      - Round up to nearest integer (towards positive infinity).
+   * - ``maxInt(Int a, Int b)``
+     - Int
+     - Return the larger of the two Integers.
+   * - ``maxLong(Long a, Long b)``
+     - Long
+     - Return the larger of the two Longs.
+   * - ``maxFloat(Float a, Float b)``
+     - Float
+     - Return the larger of the two Floats.
+   * - ``maxDouble(Double a, Double b)``
+     - Double
+     - Return the larger of the two Doubles.
+   * - ``minInt(Int a, Int b)``
+     - Int
+     - Return the smaller of the two Integers.
+   * - ``minLong(Long a, Long b)``
+     - Long
+     - Return the smaller of the two Longs.
+   * - ``minFloat(Float a, Float b)``
+     - Float
+     - Return the smaller of the two Floats.
+   * - ``minDouble(Double a, Double b)``
+     - Double
+     - Return the smaller of the two Doubles.
+   * - ``roundFloat(Float x)``
+     - Int
+     - Round to the nearest Integer based on conventional rounding rules.
+   * - ``roundDouble(Double x)``
+     - Long
+     - Round to the nearest Long based on conventional rounding rules.
+   * - ``roundToPlaces(Double x, Int places)``
+     - Double
+     - Round Double to the nearest Double based on the number of specified decimal places. Round to a maximum of 3 decimal places in order to inhibit number format errors when using Doubles in commands.
    * - ``sin(Double x)``
      - Double
      - Sine of x (degrees).
@@ -204,6 +246,9 @@ Common mathematical operations.
    * - ``arctan(Double x)``
      - Double
      - Arctangent of x (returns degrees).
+   * - ``atan2(Double y, Double x)``
+     - Double
+     - See the Java Docs for an explanation on atan2 (returns degrees).
    * - ``radsin(Double x)``
      - Double
      - Sine of x (radians).
@@ -222,6 +267,9 @@ Common mathematical operations.
    * - ``radarctan(Double x)``
      - Double
      - Arctangent of x (returns radians).
+   * - ``radatan2(Double y, Double x)``
+     - Double
+     - See the Java Docs for an explanation on atan2 (returns radians).
    * - ``rad(Double x)``
      - Double
      - Convert degrees to radians.
